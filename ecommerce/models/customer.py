@@ -10,6 +10,8 @@ class Customer(models.Model):
     state = models.CharField(max_length=63)
     country = models.CharField(max_length=63)
     zipcode = models.CharField(max_length=63)
+    phone = models.CharField(max_length=15)
+    img = models.URLField(blank=True)
 
     @property
     def customer_name(self):
