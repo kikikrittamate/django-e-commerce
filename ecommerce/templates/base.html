@@ -19,7 +19,7 @@
         {% if user.is_authenticated %}
         <li><button href="#">{{ user.username }}</button></li>
         {% else %}
-        <li><button href="#">เข้าสู่ระบบ</button></li>
+        <li><a href="{% url 'ecommerce:login' %}"><button>เข้าสู่ระบบ</button></a></li>
         {% endif %}
         </ul>
     </nav>
