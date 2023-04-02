@@ -50,9 +50,14 @@
   border: none;
   cursor: pointer;
   margin-top: 30px;
-  margin-left: 9px;
+  margin-left: 8px;
 }
 
 .category-img {
   height: 60px;
+}
+
+.home-background {
+  width: 1900px;
+  margin-top: 30px;
 }

@@ -44,3 +44,16 @@ nav ul li button {
   width: 95px;
   margin-left: 30px;
 }
+
+footer {
+  background: rgb(255, 218, 200);
+  color: white;
+  height: 80px;
+  width: 100%;
+}
+
+footer a {
+  font-size: 20px;
+  margin-top: 50%;
+  margin-left: 40%;
+}
