@@ -2,5 +2,12 @@
 
 <!-- Edit content here -->
 {% block content %}
-<h1>Hi!</h1>
+<link rel="stylesheet" href="static/css/home.css" />
+<h1 class="search-msg">ค้นหาสินค้า</h1>
+<form action="" class="search-bar">
+  <input type="text" placeholder="เช่น ชั้นวางหนังสือ" name="q" />
+  <button type="submit">
+    <img src="static/images/search.png" />
+  </button>
+</form>
 {% endblock %}
