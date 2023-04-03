@@ -1,0 +1,59 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Kanit", sans-serif;
+  background-color: antiquewhite;
+}
+
+nav {
+  background-color: rgb(255, 218, 200);
+  height: 80px;
+  width: 100%;
+}
+
+nav ul {
+  float: right;
+  margin-right: 30px;
+}
+
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 20px;
+}
+
+nav ul li button {
+  font-family: "Kanit", sans-serif;
+  background-color: white;
+  height: 50px;
+  width: 180px;
+  font-size: 22px;
+  color: rgb(121, 64, 23);
+  border-radius: 27px;
+  border: none;
+}
+
+.logo {
+  height: 80px;
+  width: 95px;
+  margin-left: 30px;
+}
+
+footer {
+  background: rgb(255, 218, 200);
+  color: white;
+  height: 80px;
+  width: 100%;
+}
+
+footer a {
+  font-size: 20px;
+  margin-top: 50%;
+  margin-left: 40%;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %}
+    <meta charset="UTF-8" />
+    <title>home page</title>
+    <link rel="stylesheet" href="static/css/base.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit&display=swap"
+      rel="stylesheet"
+    />
+    {% endblock %}
+  </head>
+
+  <body>
+    {% block navbar %}
+    <nav id="navbar">
+      <img class="logo" src="static/images/logo.png" />
+      <ul>
+        <li>
+          <a href="{% url 'ecommerce:home' %}"
+            ><button href="#">หน้าหลัก</button></a
+          >
+        </li>
+
+        {% if user.is_authenticated %}
+        <li><button href="#">{{ user.username }}</button></li>
+        {% else %}
+        <li>
+          <a href="{% url 'ecommerce:login' %}"><button>เข้าสู่ระบบ</button></a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+    {% endblock %}
+
+    <div id="content">{% block content %}{% endblock %}</div>
+
+    {%block footer %}
+    <footer><a>for principles of software architecture project</a></footer>
+    {% endblock %}
+  </body>
+</html>
