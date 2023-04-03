@@ -46,14 +46,20 @@ nav ul li button {
 }
 
 footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background: rgb(255, 218, 200);
   color: white;
-  height: 80px;
-  width: 100%;
+  position: relative;
+  height: auto;
+  padding-top: 20px;
+  text-align: center;
 }
 
-footer a {
-  font-size: 20px;
-  margin-top: 50%;
-  margin-left: 40%;
+.footer-bottom p {
+  font-size: 14px;
+  word-spacing: 2px;
+  text-transform: capitalize;
 }

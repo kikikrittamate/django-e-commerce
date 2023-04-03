@@ -1,0 +1,12 @@
+[
+  {
+    "model": "ecommerce.item",
+    "pk": 1,
+    "fields": {
+      "name": "ฮู๊ดดำ",
+      "category": "fashion",
+      "shop": "kaidee",
+      "qty": 15
+    }
+  }
+]
