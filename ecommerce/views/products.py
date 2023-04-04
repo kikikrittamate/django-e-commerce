@@ -1,6 +1,6 @@
 from django.shortcuts import render
-
+from ..models import Item
 
 def products(request, category):
-    # TODO: add query product with category
-    return render(request, 'products.html')
+    context = {'items_list':Item.objects.all()}
+    return render(request, 'products.html', context)

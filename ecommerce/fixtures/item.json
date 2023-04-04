@@ -3,7 +3,7 @@
     "model": "ecommerce.item",
     "pk": 1,
     "fields": {
-      "name": "แฟชั่น",
+      "name": "เสื้อลายเป็ด",
       "desc": "เสื้อลายเป็ดน่ารัก",
       "qty": 15,
       "price": 199,
