@@ -12,8 +12,8 @@
   </button>
 </form>
 <div>
-  {% for c in category %}
-    <a href="{% url 'ecommerce:products' %}">
+{% for c in category %}
+    <a href="{% url 'ecommerce:products' category=c.name %}">
       <button class="category-button">
       <img class="category-img" src="{{ c.absolute_image_url }}" />
       <p>{{ c.name }}</p>
