@@ -1,0 +1,83 @@
+[
+    {
+      "model": "ecommerce.category",
+      "pk": 3,
+      "fields": {
+        "name": "อิเล็กทรอนิกส์",
+        "desc": "",
+        "img": "categories/electronic.png"
+      }
+    },
+    {
+      "model": "ecommerce.category",
+      "pk": 4,
+      "fields": {
+        "name": "สื่อบันเทิง",
+        "desc": "",
+        "img": "categories/entertain.png"
+      }
+    },
+    {
+      "model": "ecommerce.category",
+      "pk": 5,
+      "fields": {
+        "name": "แฟชั่น",
+        "desc": "",
+        "img": "categories/fashion.png"
+      }
+    },
+    {
+      "model": "ecommerce.category",
+      "pk": 6,
+      "fields": {
+        "name": "อาหาร",
+        "desc": "",
+        "img": "categories/food.png"
+      }
+    },
+    {
+      "model": "ecommerce.category",
+      "pk": 7,
+      "fields": {
+        "name": "เฟอร์นิเจอร์",
+        "desc": "",
+        "img": "categories/furniture.png"
+      }
+    },
+    {
+      "model": "ecommerce.category",
+      "pk": 8,
+      "fields": {
+        "name": "เครื่องเขียน",
+        "desc": "",
+        "img": "categories/pen.png"
+      }
+    },
+    {
+      "model": "ecommerce.category",
+      "pk": 9,
+      "fields": {
+        "name": "สัตว์เลี้ยง",
+        "desc": "",
+        "img": "categories/pet.png"
+      }
+    },
+    {
+      "model": "ecommerce.category",
+      "pk": 10,
+      "fields": {
+        "name": "กีฬา",
+        "desc": "",
+        "img": "categories/sport.png"
+      }
+    },
+    {
+      "model": "ecommerce.category",
+      "pk": 11,
+      "fields": {
+        "name": "ของใช้",
+        "desc": "",
+        "img": "categories/utensil.png"
+      }
+    }
+    ]
