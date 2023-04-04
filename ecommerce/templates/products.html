@@ -6,29 +6,23 @@
 <h1 class="search-msg">ค้นหาสินค้า</h1>
 <form action="" class="search-bar">
   <input type="text" placeholder="เช่น ชั้นวางหนังสือ" name="products" />
-  <button type="submit">
+  ><button type="submit">
     <img src="static/images/search.png" />
   </button>
 </form>
 <div>
-  <table class="products table">
-    <tr>
-        {% if items_list %}
-            {% for item in items_list %}
-                <tr>
-                    <td>
-                        <h3>{{ item.name }}</h3>
-                        <h3>{{item.category}}</h3>
-                        <h3>{{item.shop}}</h3>
-                        <h3>{{item.qty}}</h3>
-                    </td>             
-                </tr>
-            {% endfor %}
-        {% else %}
-            <p style="margin-left: 50px">No items are available.</p>
-        {% endif %}
-    </tr>
-</table>
+  <ul>
+    {% if items_list %} {% for item in items_list %}
+    <li>
+      <h2>{{ item.name }}</h2>
+      <p>{{item.category}}</p>
+      <p>{{item.shop}}</p>
+      <p>{{item.qty}}</p>
+    </li>
+    {% endfor %} {% else %}
+    <p style="margin-left: 50px">No items are available.</p>
+    {% endif %}
+  </ul>
 </div>
 
 {% endblock %}

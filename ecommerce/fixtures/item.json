@@ -1,0 +1,15 @@
+[
+  {
+    "model": "ecommerce.item",
+    "pk": 1,
+    "fields": {
+      "name": "แฟชั่น",
+      "desc": "เสื้อลายเป็ดน่ารัก",
+      "qty": 15,
+      "price": 199,
+      "img": "https://c.bonfireassets.com/thumb/design-image/6c548aae-3adb-4f4b-9a1a-7f1aec7dc5c2/9d8b807d-87a1-4813-8057-9b081f8e6296/900/",
+      "category": 5,
+      "shop": 1
+    }
+  }
+]
