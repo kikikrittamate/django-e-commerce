@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 <!-- Edit content here -->
+<!-- Edit content here -->
 {% block content %}
 <link rel="stylesheet" href="static/css/home.css" />
 <h1 class="search-msg">ค้นหาสินค้า</h1>
@@ -11,60 +12,21 @@
   </button>
 </form>
 <div>
-  <a href="{% url 'ecommerce:products' %}"
-    ><button class="category-button">
-      <img class="category-img" src="static/images/categories/fashion.png" />
-      <p>แฟชั่น</p>
-    </button></a
-  >
-  <a href="{% url 'ecommerce:products' %}"
-    ><button class="category-button">
-      <img class="category-img" src="static/images/categories/utensil.png" />
-      <p>ของใช้</p>
-    </button></a
-  >
-  <a href="{% url 'ecommerce:products' %}"
-    ><button class="category-button">
-      <img class="category-img" src="static/images/categories/furniture.png" />
-      <p>เฟอร์นิเจอร์</p>
-    </button></a
-  >
-  <a href="{% url 'ecommerce:products' %}"
-    ><button class="category-button">
-      <img class="category-img" src="static/images/categories/electronic.png" />
-      <p>อิเล็กทรอนิกส์</p>
-    </button></a
-  >
-  <a href="{% url 'ecommerce:products' %}"
-    ><button class="category-button">
-      <img class="category-img" src="static/images/categories/sport.png" />
-      <p>กีฬา</p>
-    </button></a
-  >
-  <a href="{% url 'ecommerce:products' %}"
-    ><button class="category-button">
-      <img class="category-img" src="static/images/categories/entertain.png" />
-      <p>สื่อบันเทิง</p>
-    </button></a
-  >
-  <a href="{% url 'ecommerce:products' %}"
-    ><button class="category-button">
-      <img class="category-img" src="static/images/categories/pen.png" />
-      <p>เครื่องเขียน</p>
-    </button></a
-  >
-  <a href="{% url 'ecommerce:products' %}"
-    ><button class="category-button">
-      <img class="category-img" src="static/images/categories/pet.png" />
-      <p>สัตว์เลี้ยง</p>
-    </button></a
-  >
-  <a href="{% url 'ecommerce:products' %}"
-    ><button class="category-button">
-      <img class="category-img" src="static/images/categories/food.png" />
-      <p>อาหาร</p>
-    </button></a
-  >
+  {% for c in category %}
+    <a href="{% url 'ecommerce:products' %}">
+      <button class="category-button">
+      <img class="category-img" src="{{ c.absolute_image_url }}" />
+      <p>{{ c.name }}</p>
+    </button></a>
+  {% endfor %}
 </div>
 <img class="home-background" src="static/images/background.jpg" />
 {% endblock %}
+
+<!-- {% for c in category %}
+    <a href="{% url 'ecommerce:products' %}">
+      <button class="category-button">
+      <img class="category-img" src="{{ c.absolute_image_url }}" />
+      <p>สัตว์เลี้ยง</p>
+    </button></a>
+{% endfor %} -->
