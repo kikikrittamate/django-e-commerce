@@ -4,8 +4,7 @@
 
 {% block head %}
 {{ block.super }}
-<link rel="stylesheet" href="{% static 'css/home.css' %}" />
-<link rel="stylesheet" href="static/css/products.css" />
+<link rel="stylesheet" href="{% static 'css/products.css' %}" />
 {% endblock %}
 
 
@@ -22,10 +21,10 @@
     {% if items_list %} {% for item in items_list %}
     <li>
       <img class="item-img" src="{{item.img}}" />
-      <h2>{{item.name}}</h2>
-      <p>{{item.category}}</p>
-      <p>{{item.shop}}</p>
-      <p>จำนวน {{item.qty}}</p>
+      <h2>{{ item.name }}</h2>
+      <p>{{ item.category}}</p>
+      <p>{{ item.shop }}</p>
+      <p>จำนวน {{ item.qty }}</p>
     </li>
     {% endfor %} {% else %}
     <p style="margin-left: 50px">No items are available.</p>
