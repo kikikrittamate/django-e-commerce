@@ -1,0 +1,22 @@
+.item-card {
+  background-color: white;
+  border-radius: 20px;
+  width: 300px;
+  margin: 50px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+}
+
+.item-card img {
+  height: 200px;
+  width: 200px;
+  border: 2px;
+  border-color: black;
+  align-items: center;
+  margin: 50px;
+}
+.item-card h2 {
+  margin: auto;
+}

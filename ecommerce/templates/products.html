@@ -1,14 +1,6 @@
-{% extends "base.html" %}
-{% load static %}
-
-
-{% block head %}
-{{ block.super }}
+{% extends "base.html" %} {% load static %} {% block head %} {{ block.super }}
 <link rel="stylesheet" href="{% static 'css/products.css' %}" />
-{% endblock %}
-
-
-{% block content %}
+{% endblock %} {% block content %}
 <!-- <h1 class="search-msg">ค้นหาสินค้า</h1>
 <form action="" class="search-bar">
   <input type="text" placeholder="เช่น ชั้นวางหนังสือ" name="products" />
@@ -19,19 +11,18 @@
 
 {% include "ecommerce/templates/searchbar.html" %}
 
-<div>
-  <ul>
-    {% if items_list %} {% for item in items_list %}
-    <li>
-      <img class="item-img" src="{{item.img}}" />
-      <h2>{{ item.name }}</h2>
-      <p>{{ item.category}}</p>
-      <p>{{ item.shop }}</p>
-      <p>จำนวน {{ item.qty }}</p>
-    </li>
-    {% endfor %} {% else %}
-    <p style="margin-left: 50px">No items are available.</p>
-    {% endif %}
-  </ul>
+<div class="container">
+  {% if items_list %} {% for item in items_list %}
+  <div class="item-card">
+    <img src="{{item.img}}" />
+    <h2>{{ item.name }}</h2>
+    <p>{{ item.category}}</p>
+    <p>{{ item.shop }}</p>
+    <p>จำนวน {{ item.qty }}</p>
+    <p>{{ item.price }} บาท</p>
+  </div>
+  {% endfor %} {% else %}
+  <p>No items are available.</p>
+  {% endif %}
 </div>
 {% endblock %}

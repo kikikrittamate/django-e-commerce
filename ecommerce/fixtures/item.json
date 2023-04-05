@@ -4,10 +4,23 @@
     "pk": 1,
     "fields": {
       "name": "เสื้อลายเป็ด",
-      "desc": "เสื้อลายเป็ดน่ารัก",
+      "desc": "เสื้อลายเป็ดน่ารักราคาประหยัด",
       "qty": 15,
       "price": 199,
       "img": "https://c.bonfireassets.com/thumb/design-image/6c548aae-3adb-4f4b-9a1a-7f1aec7dc5c2/9d8b807d-87a1-4813-8057-9b081f8e6296/900/",
+      "category": 5,
+      "shop": 1
+    }
+  },
+  {
+    "model": "ecommerce.item",
+    "pk": 1,
+    "fields": {
+      "name": "เสื้อลายหมี",
+      "desc": "เสื้อลายหมีน่ารักราคาประหยัด",
+      "qty": 11,
+      "price": 199,
+      "img": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61OOMVvvJJL._AC_SX569_.jpg",
       "category": 5,
       "shop": 1
     }
