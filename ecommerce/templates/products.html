@@ -1,9 +1,4 @@
-{% extends "base.html" %}
-{% load static %}
-
-
-{% block head %}
-{{ block.super }}
+{% extends "base.html" %} {% load static %} {% block head %} {{ block.super }}
 <link rel="stylesheet" href="{% static 'css/products.css' %}" />
 {% endblock %}
 
@@ -12,19 +7,21 @@
 
 {% include "ecommerce/templates/searchbar.html" %}
 
-<div>
-  <ul>
-    {% if items_list %} {% for item in items_list %}
-    <li>
-      <img class="item-img" src="{{ item.img }}" />
-      <h2>{{ item.name }}</h2>
-      <p>{{ item.category}}</p>
-      <p>{{ item.shop }}</p>
-      <p>จำนวน {{ item.qty }}</p>
-    </li>
-    {% endfor %} {% else %}
-    <p style="margin-left: 50px">No items are available.</p>
-    {% endif %}
-  </ul>
+<h1 class="category-msg">สินค้าประเภท{{category.name}}</h1>
+<div class="container">
+  {% if items_list %} {% for item in items_list %}
+  <div class="item-card">
+    <img src="{{item.img}}" />
+    <h2>{{ item.name }}</h2>
+    <p class="item-category">{{ item.category}}</p>
+    <div class="item-data">
+      <h3 class="item-shop">{{ item.shop }}</h3>
+      <h3 class="item-quantity">จำนวน {{ item.qty }}</h3>
+      <h3 class="item-price">{{ item.price }} บาท</h3>
+    </div>
+  </div>
+  {% endfor %} {% else %}
+  <p class="no-item">ไม่มีสินค้าในขณะนี้</p>
+  {% endif %}
 </div>
 {% endblock %}
