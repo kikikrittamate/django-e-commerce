@@ -14,13 +14,26 @@
   },
   {
     "model": "ecommerce.item",
-    "pk": 1,
+    "pk": 2,
     "fields": {
       "name": "เสื้อลายหมี",
       "desc": "เสื้อลายหมีน่ารักราคาประหยัด",
       "qty": 11,
       "price": 199,
       "img": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61OOMVvvJJL._AC_SX569_.jpg",
+      "category": 5,
+      "shop": 1
+    }
+  },
+  {
+    "model": "ecommerce.item",
+    "pk": 3,
+    "fields": {
+      "name": "เสื้อลายแมว",
+      "desc": "เสื้อลายแมวน่ารักราคาประหยัด",
+      "qty": 3,
+      "price": 199,
+      "img": "https://www.animalshirts.net/wp-content/uploads/2018/03/10-5945.jpg",
       "category": 5,
       "shop": 1
     }

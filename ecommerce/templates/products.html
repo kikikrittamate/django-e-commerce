@@ -11,8 +11,8 @@
 
 {% include "ecommerce/templates/searchbar.html" %}
 
+<h1 class="category-msg">สินค้าประเภท{{category.name}}</h1>
 <div class="container">
-  <h1>สินค้าประเภท{{category.name}}</h1>
   {% if items_list %} {% for item in items_list %}
   <div class="item-card">
     <img src="{{item.img}}" />
