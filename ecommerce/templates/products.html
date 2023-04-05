@@ -9,13 +9,16 @@
 
 
 {% block content %}
-<h1 class="search-msg">ค้นหาสินค้า</h1>
+<!-- <h1 class="search-msg">ค้นหาสินค้า</h1>
 <form action="" class="search-bar">
   <input type="text" placeholder="เช่น ชั้นวางหนังสือ" name="products" />
-  ><button type="submit">
+  <button type="submit">
     <img src="{% static 'images/search.png' %}" />
   </button>
-</form>
+</form> -->
+
+{% include "ecommerce/templates/searchbar.html" %}
+
 <div>
   <ul>
     {% if items_list %} {% for item in items_list %}
