@@ -4,7 +4,7 @@
   margin: 0 auto;
   display: grid;
   padding: 3rem 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   gap: 2rem;
 }
 
@@ -12,7 +12,7 @@
   background-color: white;
   border-radius: 20px;
   width: 300px;
-  margin: 100px;
+  margin: 30px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
