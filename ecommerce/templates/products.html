@@ -1,34 +1,35 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% load static %} {% block head %} {{ block.super }}
+<link rel="stylesheet" href="{% static 'css/products.css' %}" />
+{% endblock %}
 
-<!-- Edit content here -->
+
 {% block content %}
-<link rel="stylesheet" href="static/css/home.css" />
-<h1 class="search-msg">ค้นหาสินค้า</h1>
-<form action="" class="search-bar">
-  <input type="text" placeholder="เช่น ชั้นวางหนังสือ" name="products" />
-  <button type="submit">
-    <img src="static/images/search.png" />
-  </button>
-</form>
-<div>
-  <table class="products table">
-    <tr>
-        {% if items_list %}
-            {% for item in items_list %}
-                <tr>
-                    <td>
-                        <h3>{{ item.name }}</h3>
-                        <h3>{{item.category}}</h3>
-                        <h3>{{item.shop}}</h3>
-                        <h3>{{item.qty}}</h3>
-                    </td>             
-                </tr>
-            {% endfor %}
-        {% else %}
-            <p style="margin-left: 50px">No items are available.</p>
-        {% endif %}
-    </tr>
-</table>
-</div>
 
+{% include "ecommerce/templates/searchbar.html" %}
+
+
+<h1 class="category-msg">
+  {% if q %}
+  ผลลัพธ์การค้นหา "{{ q }}"
+  {% else %}
+  สินค้าประเภท{{ category.name }}
+  {% endif %}
+</h1>
+
+<div class="container">
+  {% if items_list %} {% for item in items_list %}
+  <div class="item-card">
+    <a href="{% url 'ecommerce:product-detail' item.id %}"><img src="{{item.img}}" /></a>
+    <h2>{{ item.name }}</h2>
+    <p class="item-category">{{ item.category}}</p>
+    <div class="item-data">
+      <h3 class="item-shop">{{ item.shop }}</h3>
+      <h3 class="item-quantity">จำนวน {{ item.qty }}</h3>
+      <h3 class="item-price">{{ item.price }} บาท</h3>
+    </div>
+  </div>
+  {% endfor %} {% else %}
+  <p class="no-item">ไม่มีสินค้าในขณะนี้</p>
+  {% endif %}
+</div>
 {% endblock %}

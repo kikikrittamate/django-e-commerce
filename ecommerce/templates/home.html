@@ -1,16 +1,17 @@
 {% extends "base.html" %}
+{% load static %}
 
-<!-- Edit content here -->
-<!-- Edit content here -->
+
+{% block head %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock %}
+
+
 {% block content %}
-<link rel="stylesheet" href="static/css/home.css" />
-<h1 class="search-msg">ค้นหาสินค้า</h1>
-<form action="" class="search-bar">
-  <input type="text" placeholder="เช่น ชั้นวางหนังสือ" name="products" />
-  <button type="submit">
-    <img src="static/images/search.png" />
-  </button>
-</form>
+
+{% include "ecommerce/templates/searchbar.html" %}
+
 <div>
   {% for c in category %}
   <a href="{% url 'ecommerce:products' category=c.name %}">
@@ -21,13 +22,5 @@
   >
   {% endfor %}
 </div>
-<img class="home-background" src="static/images/background.jpg" />
+<img class="home-background" src="{% static 'images/background.jpg' %}" />
 {% endblock %}
-
-<!-- {% for c in category %}
-    <a href="{% url 'ecommerce:products' %}">
-      <button class="category-button">
-      <img class="category-img" src="{{ c.absolute_image_url }}" />
-      <p>สัตว์เลี้ยง</p>
-    </button></a>
-{% endfor %} -->

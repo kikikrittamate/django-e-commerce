@@ -1,0 +1,80 @@
+[
+  {
+    "model": "ecommerce.item",
+    "pk": 1,
+    "fields": {
+      "name": "เสื้อลายเป็ด",
+      "desc": "เสื้อลายเป็ดน่ารักราคาประหยัด",
+      "qty": 15,
+      "price": 199,
+      "img": "https://c.bonfireassets.com/thumb/design-image/6c548aae-3adb-4f4b-9a1a-7f1aec7dc5c2/9d8b807d-87a1-4813-8057-9b081f8e6296/900/",
+      "category": 5,
+      "shop": 1
+    }
+  },
+  {
+    "model": "ecommerce.item",
+    "pk": 2,
+    "fields": {
+      "name": "เสื้อลายหมี",
+      "desc": "เสื้อลายหมีน่ารักราคาประหยัด",
+      "qty": 11,
+      "price": 199,
+      "img": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61OOMVvvJJL._AC_SX569_.jpg",
+      "category": 5,
+      "shop": 1
+    }
+  },
+  {
+    "model": "ecommerce.item",
+    "pk": 3,
+    "fields": {
+      "name": "เสื้อลายแมว",
+      "desc": "เสื้อลายแมวน่ารักราคาประหยัด",
+      "qty": 3,
+      "price": 199,
+      "img": "https://www.animalshirts.net/wp-content/uploads/2018/03/10-5945.jpg",
+      "category": 5,
+      "shop": 1
+    }
+  },
+  {
+    "model": "ecommerce.item",
+    "pk": 4,
+    "fields": {
+      "name": "เสื้อลายสุนัข",
+      "desc": "เสื้อลายสุนัขน่ารักราคาประหยัด",
+      "qty": 7,
+      "price": 199,
+      "img": "https://m.media-amazon.com/images/I/A13usaonutL._AC_AC_CLa%7C2140%2C2000%7C916JjU-OJeL.png%7C0%2C0%2C2140%2C2000%2B0.0%2C0.0%2C2140.0%2C2000.0_SY350_QL65_.png",
+      "category": 5,
+      "shop": 1
+    }
+  },
+  {
+    "model": "ecommerce.item",
+    "pk": 5,
+    "fields": {
+      "name": "โดริโทส",
+      "desc": "ขนมอบกรอบรสบาร์บีคิว",
+      "qty": 215,
+      "price": 30,
+      "img": "https://cf.shopee.co.th/file/63745c6fbda51ad30024b2eb869de0ba",
+      "category": 6,
+      "shop": 1
+    }
+  },
+  {
+    "model": "ecommerce.item",
+    "pk": 6,
+    "fields": {
+      "name": "สายชาร์จ usb-c",
+      "desc": "สายชาร์จ usb-c",
+      "qty": 45,
+      "price": 990,
+      "img": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MQKJ3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1674496556075",
+      "category": 3,
+      "shop": 1
+    }
+  }
+]

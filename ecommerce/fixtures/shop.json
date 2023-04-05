@@ -1,0 +1,18 @@
+[
+  {
+    "model": "ecommerce.shop",
+    "pk": 1,
+    "fields": {
+      "owner": 1,
+      "name": "kaidee",
+      "desc": "ร้านขายเสื้อ",
+      "address": "Siam center",
+      "city": "Patumwan",
+      "state": "Bangkok",
+      "country": "Thailand",
+      "zipcode": "10330",
+      "phone": "0988888888",
+      "img": "https://static.wixstatic.com/media/9c8398_4d8fc94e5a0045dfad52cd5e7d5655ac~mv2.jpg/v1/fill/w_2500,h_1875,al_c/9c8398_4d8fc94e5a0045dfad52cd5e7d5655ac~mv2.jpg"
+    }
+  }
+]

@@ -1,0 +1,88 @@
+.container {
+  align-items: center;
+  margin-top: 50px;
+  margin: 0 auto;
+  display: grid;
+  padding: 3rem 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 2rem;
+}
+
+.item-card {
+  background-color: white;
+  border-radius: 20px;
+  width: 300px;
+  margin: 30px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.category-msg {
+  margin-top: 50px;
+  color: rgb(121, 64, 23);
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+}
+
+.item-card img {
+  height: 200px;
+  width: 200px;
+  border: 2px;
+  border-color: black;
+  align-items: center;
+  margin-top: 25px;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding-bottom: 10px;
+}
+.item-card h2 {
+  font-size: 25px;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+}
+
+.item-category {
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  padding-bottom: 10px;
+}
+
+.item-shop {
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.item-price {
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.item-quantity {
+  font-weight: lighter;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.item-data {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.shop-img {
+  height: 20px;
+  width: 20px;
+}
+
+.no-item {
+  color: rgb(151, 151, 151);
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 50px;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+}
