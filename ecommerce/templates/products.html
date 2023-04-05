@@ -12,17 +12,20 @@
 {% include "ecommerce/templates/searchbar.html" %}
 
 <div class="container">
+  <h1>สินค้าประเภท{{category.name}}</h1>
   {% if items_list %} {% for item in items_list %}
   <div class="item-card">
     <img src="{{item.img}}" />
     <h2>{{ item.name }}</h2>
-    <p>{{ item.category}}</p>
-    <p>{{ item.shop }}</p>
-    <p>จำนวน {{ item.qty }}</p>
-    <p>{{ item.price }} บาท</p>
+    <p class="item-category">{{ item.category}}</p>
+    <div class="item-data">
+      <h3 class="item-shop">{{ item.shop }}</h3>
+      <h3 class="item-quantity">จำนวน {{ item.qty }}</h3>
+      <h3 class="item-price">{{ item.price }} บาท</h3>
+    </div>
   </div>
   {% endfor %} {% else %}
-  <p>No items are available.</p>
+  <p class="no-item">ไม่มีสินค้าในขณะนี้</p>
   {% endif %}
 </div>
 {% endblock %}
