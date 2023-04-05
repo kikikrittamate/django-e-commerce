@@ -20,10 +20,11 @@
   <ul>
     {% if items_list %} {% for item in items_list %}
     <li>
-      <h2>{{ item.name }}</h2>
+      <img class="item-img" src="{{item.img}}" />
+      <h2>{{item.name}}</h2>
       <p>{{item.category}}</p>
       <p>{{item.shop}}</p>
-      <p>{{item.qty}}</p>
+      <p>จำนวน {{item.qty}}</p>
     </li>
     {% endfor %} {% else %}
     <p style="margin-left: 50px">No items are available.</p>
