@@ -12,3 +12,8 @@ def search_products(request):
     q = request.GET.get('products')
     items_list = Item.objects.filter(name__icontains=q)
     return render(request, 'products.html', { 'items_list': items_list, 'q': q })
+
+
+def product_detail(request, product_id):
+    product = Item.objects.get(id=product_id)
+    return render(request, 'product-detail.html', { 'item': product })
