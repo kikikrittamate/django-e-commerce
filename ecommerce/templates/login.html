@@ -2,15 +2,29 @@
 {% load static %}
 
 
+{% block head %}
+{{ block.super }}
+
+<!-- show message after unsuccessful login -->
+{% if msg %}
+<script>
+    window.onload = function() {
+        alert("{{ msg }}")
+    };
+</script>
+{% endif %}
+{% endblock %}
+
+
 {% block content %}
 <h1>Login</h1>
 <form method="POST" action="{% url 'ecommerce:login-submit' %}">
     {% csrf_token %}
     <label for="username">username:</label>
-    <input type="text" name="username" />
+    <input type="text" name="username" required="required"/>
     <br />
     <label for="password">password:</label>
-    <input type="password" name="password" />
+    <input type="password" name="password" required="required"/>
     <br />
     <input type="submit" value="login" />
 </form>

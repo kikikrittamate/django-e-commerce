@@ -15,7 +15,7 @@ def login_customer_submit(request):
     if user is not None:
         login(request, user)
         return redirect('ecommerce:home')
-    return render(request, "login.html")
+    return render(request, "login.html", {"msg": "Invalid username/password"})
 
 
 def logout_customer(request):
