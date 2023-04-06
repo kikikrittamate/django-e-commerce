@@ -1,5 +1,19 @@
-<!-- -->
+{% extends "base.html" %}
+{% load static %}
 
-<div>
-    This is login and registraion page waiting for implementation
-</div>
+
+{% block content %}
+<h1>Login</h1>
+<form method="POST" action="{% url 'ecommerce:login-submit' %}">
+    {% csrf_token %}
+    <label for="username">username:</label>
+    <input type="text" name="username" />
+    <br />
+    <label for="password">password:</label>
+    <input type="password" name="password" />
+    <br />
+    <input type="submit" value="login" />
+</form>
+
+<a href="{% url 'ecommerce:register' %}">register</a>
+{% endblock %}

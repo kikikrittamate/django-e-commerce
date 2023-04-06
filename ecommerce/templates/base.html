@@ -24,13 +24,16 @@
       <img class="logo" src="{% static 'images/logo.png' %}" />
       <ul>
         <li>
-          <a href="{% url 'ecommerce:home' %}"
-            ><button href="#">หน้าหลัก</button></a
-          >
+          <a href="{% url 'ecommerce:home' %}"><button href="#">หน้าหลัก</button></a>
         </li>
 
         {% if user.is_authenticated %}
-        <li><button href="#">{{ user.username }}</button></li>
+        <li>
+          <button href="#">{{ user.username }}</button>
+        </li>
+        <li>
+          <a  href="{% url 'ecommerce:logout' %}"><button>ออกจากระบบ</button></a>
+        </li>
         {% else %}
         <li>
           <a href="{% url 'ecommerce:login' %}"><button>เข้าสู่ระบบ</button></a>
