@@ -22,5 +22,15 @@
     </div>
   </div>
 </div>
-<!-- TODO: link this to shop -->
+<div class="shop-card">
+  <img class="shop-img" src="{{item.shop.img}}" />
+  <div class="shop-detail">
+    <div><img class="shop-logo" src="{% static 'images/shop.png' %}" /></div>
+    <div>
+      <h2 class="shop-name">{{item.shop}}</h2>
+      <h3 class="shop-desc">{{item.shop.desc}}</h3>
+      <a><button class="shop-button">ไปยังหน้าร้านค้า</button></a>
+    </div>
+  </div>
+</div>
 {% endblock %}

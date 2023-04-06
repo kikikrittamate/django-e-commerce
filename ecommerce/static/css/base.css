@@ -37,6 +37,7 @@ nav ul li button {
   color: rgb(121, 64, 23);
   border-radius: 27px;
   border: none;
+  cursor: pointer;
 }
 
 .logo {
