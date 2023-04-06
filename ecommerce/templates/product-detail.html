@@ -1,18 +1,26 @@
-{% extends "base.html" %}
-{% load static %}
-
+{% extends "base.html" %} {% load static %} {% block head %} {{ block.super }}
+<link rel="stylesheet" href="{% static 'css/product-detail.css' %}" />
+{% endblock %}
 
 <!-- this is only temp, please edit this as you wish -->
 {% block content %}
-<div>
-    <img src="{{item.img}}" />
-    <h2>{{ item.name }}</h2>
-    <p>{{ item.category}}</p>
-    <div>
-      <h3>{{ item.shop }}</h3>
-      <h3>จำนวน {{ item.qty }}</h3>
-      <h3>{{ item.price }} บาท</h3>
+<h1 class="page-msg">สินค้าที่เลือก</h1>
+<div class="detail-card">
+  <img class="card-img" src="{{item.img}}" />
+  <div class="card-detail">
+    <div class="detail-1">
+      <h2 class="item-name">{{ item.name }}</h2>
+      <p class="item-category">{{ item.category}}</p>
+      <p class="item-desc">{{ item.desc }}</p>
     </div>
+    <div class="detail-2">
+      <p class="item-qty">จำนวนคงเหลือ {{ item.qty }}</p>
+      <p class="item-price">{{ item.price }} บาท</p>
+    </div>
+    <div>
+      <a><button class="add-to-cart-button">เพิ่มไปยังตะกร้า</button></a>
+    </div>
+  </div>
 </div>
 <!-- TODO: link this to shop -->
 {% endblock %}
