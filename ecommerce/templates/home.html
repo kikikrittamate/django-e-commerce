@@ -15,12 +15,12 @@
 <div>
   {% for c in category %}
   <a href="{% url 'ecommerce:products' category=c.name %}">
-    <button class="category-button" style="width: 10%">
+    <button class="category-button">
       <img class="category-img" src="{{ c.absolute_image_url }}" />
       <p>{{ c.name }}</p>
     </button></a
   >
   {% endfor %}
 </div>
-<img class="home-background" style="width: 100%"src="{% static 'images/background.jpg' %}" />
+<img class="home-background" src="{% static 'images/background.jpg' %}" />
 {% endblock %}
