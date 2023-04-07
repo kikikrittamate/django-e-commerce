@@ -17,8 +17,8 @@
 
 
 {% block content %}
-<h1>Login</h1>
-<form method="POST" action="{% url 'ecommerce:login-submit' %}">
+<h1>Shop Management Login</h1>
+<form method="POST" action="{% url 'ecommerce:login-shop-submit' %}">
     {% csrf_token %}
     <label for="username">username:</label>
     <input type="text" name="username" required="required"/>
@@ -29,7 +29,6 @@
     <input type="submit" value="login" />
 </form>
 
-<a href="{% url 'ecommerce:register' %}">register</a>
+<a href="#">shop register</a>
 <br />
-<a href="{% url 'ecommerce:login-shop' %}">login shop</a>
 {% endblock %}
