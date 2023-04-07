@@ -24,7 +24,13 @@ def logout_customer(request):
 
 
 def register_custemer(request):
-    return render(request, "register.html") 
+    return render(request, "register.html")
+
+
+def register_customer_submit(request):
+    # TODO: add register logic
+    print('submit')
+    return render(request, "login.html", {"msg": "Completed registration"})
 
 
 def login_shop(request):
