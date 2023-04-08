@@ -18,5 +18,7 @@ urlpatterns = [
     path('shop/profile/<int:shop_id>', views.shop_profile, name="shop-profile"),
     path('shop/login', views.login_shop, name='login-shop'),
     path('shop/login/submit', views.login_shop_submit, name='login-shop-submit'),
+    path('shop/register', views.register_shop, name="register-shop"),
+    path('shop/register/submit', views.register_shop_submit, name="register-shop-submit"),
     path('shop/<int:shop_id>', views.shop, name="shop"),
 ]

@@ -81,7 +81,57 @@ def login_shop_submit(request):
         print(shop.owner_id)
         return redirect(reverse("ecommerce:shop-profile", kwargs={"shop_id": shop.owner_id}))
     return render(request, "login-shop.html", {"msg": "Shop does not exist"})
-    
+
+
+def register_shop(request):
+    return render(request, "register-shop.html")
+
+
+def register_shop_submit(request):
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    cf_password = request.POST.get('cf-password')
+    firstname = request.POST.get('firstname')
+    lastname = request.POST.get('lastname')
+    email = request.POST.get('email')
+    phone = request.POST.get('lastname')
+    shopname = request.POST.get('shopname')
+    address = request.POST.get('address')
+    city = request.POST.get('city')
+    state = request.POST.get('state')
+    country = request.POST.get('country')
+    zipcode = request.POST.get('zipcode')
+    description = request.POST.get('description')
+    # validate
+    if not validate_username(username):
+        return render(request, "register-shop.html", {"msg": "Username already exist"})
+    if not validate_password(password, cf_password):
+        return render(request, "register-shop.html", {"msg": "Invalid password or confirm password"})
+    if not validate_shop_name(shopname):
+        return render(request, "register-shop.html", {"msg": "Shop name already exist"})
+    # create base user model
+    user = User.objects.create(
+        username=username,
+        email=email,
+        first_name=firstname,
+        last_name=lastname
+    )
+    user.set_password(password)
+    user.save()
+    # create customer instance
+    shop = Shop.objects.create(
+        owner=user,
+        name=shopname,
+        address=address,
+        city=city,
+        state=state,
+        country=country,
+        zipcode=zipcode,
+        phone=phone,
+        desc=description
+    )
+    return render(request, "login-shop.html", {"msg": "Completed registration"})
+
 
 def validate_username(username):
     try:
@@ -93,3 +143,11 @@ def validate_username(username):
 
 def validate_password(password, cf_password):
     return password == cf_password
+
+
+def validate_shop_name(shopname):
+    try:
+        _ = Shop.objects.get(name=shopname)
+    except Shop.DoesNotExist:
+        return True
+    return False

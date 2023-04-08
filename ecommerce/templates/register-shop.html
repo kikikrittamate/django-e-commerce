@@ -17,8 +17,8 @@
 
 
 {% block content %}
-<h1>Register</h1>
-<form method="POST" action="{% url 'ecommerce:register-submit' %}">
+<h1>Register Shop</h1>
+<form method="POST" action="{% url 'ecommerce:register-shop-submit' %}">
     {% csrf_token %}
     <label for="username">username:</label>
     <input type="text" name="username" required="required"/>
@@ -39,10 +39,10 @@
     <label for="lastname">lastname:</label>
     <input type="text" name="lastname" required="required"/>
     <br />
-    <label for="phone">phone:</label>
-    <input type="text" name="phone" required="required"/>
+    <h2>Shop Information</h2>
+    <label for="shopname">shop name:</label>
+    <input type="text" name="shopname" required="required" />
     <br />
-    <h2>Address</h2>
     <label for="address">address:</label>
     <input type="text" name="address" required="required"/>
     <br />
@@ -57,6 +57,13 @@
     <br />
     <label for="zipcode">zipcode:</label>
     <input type="text" name="zipcode" required="required"/>
+    <br />
+    <label for="phone">phone:</label>
+    <input type="text" name="phone" required="required"/>
+    <br />
+    <h2>Optional</h2>
+    <label for="description">description</label>
+    <input type="text" name="description">
     <br />
     <input type="submit" value="submit" />
 </form>
