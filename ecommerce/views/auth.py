@@ -76,7 +76,10 @@ def login_shop_submit(request):
     password = request.POST.get('password')
     user = authenticate(request, username=username, password=password)
     if user is not None:
-        shop = Shop.objects.get(owner=user)
+        try:
+            shop = Shop.objects.get(owner=user)
+        except Shop.DoesNotExist:
+            return render(request, "login-shop.html", {"msg": "User does not have shop"})
         login(request, user)
         print(shop.owner_id)
         return redirect(reverse("ecommerce:shop-profile", kwargs={"shop_id": shop.owner_id}))
