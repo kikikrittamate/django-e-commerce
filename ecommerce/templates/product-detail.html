@@ -13,11 +13,11 @@
       <p class="item-category">{{ item.category}}</p>
       <p class="item-desc">{{ item.desc }}</p>
     </div>
-    <div class="detail-2">
+    <div class="detail-2" style="padding-top: 50px;">
       <p class="item-qty">จำนวนคงเหลือ {{ item.qty }}</p>
       <p class="item-price">{{ item.price }} บาท</p>
     </div>
-    <div>
+    <div class="button-div">
       <a><button class="add-to-cart-button">เพิ่มไปยังตะกร้า</button></a>
     </div>
   </div>
@@ -26,10 +26,16 @@
   <img class="shop-img" src="{{item.shop.img}}" />
   <div class="shop-detail">
     <div><img class="shop-logo" src="{% static 'images/shop.png' %}" /></div>
-    <div>
+      <div class="detail-3">
       <h2 class="shop-name">{{item.shop}}</h2>
       <h3 class="shop-desc">{{item.shop.desc}}</h3>
-      <a><button class="shop-button">ไปยังหน้าร้านค้า</button></a>
+    </div>
+      <div>
+      <a href="{% url 'ecommerce:shop' item.shop.owner.id %}"
+        ><button class="shop-button" style="margin-right:10px
+        ">ไปยังหน้าร้านค้า</button></a
+      >
+    </div>
     </div>
   </div>
 </div>
