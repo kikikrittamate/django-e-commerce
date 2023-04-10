@@ -1,0 +1,150 @@
+.page-msg {
+  color: rgb(121, 64, 23);
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 45px;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+}
+
+.detail-card {
+  display: flex;
+  background-color: rgb(255, 218, 200);
+  border-radius: 20px;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-bottom: 20px;
+}
+
+.card-img {
+  border-radius: 10px;
+  width: 350px;
+  height:350px;
+  margin: 50px;
+}
+
+.card-detail {
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-right: 50px;
+  padding-bottom: 20px;
+  background-color: white;
+}
+
+.detail-1 {
+  margin-left: 20px;
+  padding-top: 20px;
+}
+
+.detail-2 {
+  margin-left: 20px;
+  margin-right: 30px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 50px;
+}
+
+.item-name {
+  font-size: 40px;
+}
+
+.item-category {
+  color: darkgrey;
+  font-size: 20px;
+}
+
+.item-desc {
+  font-weight: lighter;
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+.item-qty {
+  font-size: 25px;
+  margin-top: 5px;
+}
+
+.item-price {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.button-div {
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+}
+
+.add-to-cart-button {
+  margin-top: 10px;
+  font-family: "Kanit", sans-serif;
+  background-color: antiquewhite;
+  height: 50px;
+  width: 180px;
+  font-size: 22px;
+  color: rgb(121, 64, 23);
+  border-radius: 27px;
+  border: none;
+  cursor: pointer;
+}
+
+.shop-card {
+  display: flex;
+  background-color: rgb(255, 218, 200);
+  border-radius: 20px;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-bottom: 20px;
+}
+
+
+.shop-img {
+  border-radius: 10px;
+  height: 150px;
+  width: 150px;
+  margin: 20px;
+}
+
+.shop-detail {
+  display: flex;
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  padding-top: 20px;
+  background-color: white;
+}
+
+.shop-name {
+  font-size: 30px;
+}
+
+.shop-desc {
+  font-weight: lighter;
+  color: darkgray;
+}
+.shop-button {
+  font-family: "Kanit", sans-serif;
+  background-color: antiquewhite;
+  height: 50px;
+  width: 180px;
+  font-size: 22px;
+  color: rgb(121, 64, 23);
+  border-radius: 27px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+  margin-left:10px;
+}
+
+.shop-logo {
+  margin-top: 5px;
+  margin-left: 20px;
+  margin-right: 10px;
+  height: 30px;
+  width: 30px;
+}

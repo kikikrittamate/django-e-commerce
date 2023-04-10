@@ -5,7 +5,7 @@
   <head>
     {% block head %}
     <meta charset="UTF-8" />
-    <title>home page</title>
+    <title>djanogo-ecommerce</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
     <link rel="stylesheet" href="{% static 'css/searchbar.css' %}" />
@@ -24,13 +24,16 @@
       <img class="logo" src="{% static 'images/logo.png' %}" />
       <ul>
         <li>
-          <a href="{% url 'ecommerce:home' %}"
-            ><button href="#">หน้าหลัก</button></a
-          >
+          <a href="{% url 'ecommerce:home' %}"><button href="#">หน้าหลัก</button></a>
         </li>
 
         {% if user.is_authenticated %}
-        <li><button href="#">{{ user.username }}</button></li>
+        <li>
+          <button href="#">{{ user.username }}</button>
+        </li>
+        <li>
+          <a  href="{% url 'ecommerce:logout' %}"><button>ออกจากระบบ</button></a>
+        </li>
         {% else %}
         <li>
           <a href="{% url 'ecommerce:login' %}"><button>เข้าสู่ระบบ</button></a>
@@ -41,8 +44,8 @@
     {% endblock %}
 
     <div id="content">{% block content %}{% endblock %}</div>
-    <footer>
-      <div><p>principles of software architecture project</p></div>
+    <footer class="page-footer">
+      <p class="footer-msg">principles of software architecture project</p>
     </footer>
   </body>
 </html>

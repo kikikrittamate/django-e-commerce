@@ -1,7 +1,7 @@
 .category-button {
+  width: 10%;
   font-family: "Kanit", sans-serif;
   font-size: 20px;
-  width: 200px;
   background-color: rgb(255, 218, 200);
   padding: 20px;
   border-radius: 20px;
@@ -16,6 +16,6 @@
 }
 
 .home-background {
-  width: 1900px;
+  width: 100%;
   margin-top: 30px;
 }
