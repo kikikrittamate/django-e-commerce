@@ -16,6 +16,9 @@ class Customer(models.Model):
     @property
     def customer_name(self):
         return self.user.first_name
+    
+    def __str__(self) -> str:
+        return self.user.username
 
 
 class CustomerAdmin(admin.ModelAdmin):
