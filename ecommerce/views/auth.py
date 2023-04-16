@@ -154,24 +154,3 @@ def validate_shop_name(shopname):
     except Shop.DoesNotExist:
         return True
     return False
-
-def add_item_shop_submit(request):
-    name = request.POST.get('name')
-    desc = request.POST.get('desc')
-    qty = request.POST.get('qty')
-    price = request.POST.get('price')
-    img = request.POST.get('img')
-    category = request.POST.get('category')
-    shop = request.POST.get('shop')
-    
-    # create customer instance
-    item = Item.objects.create(
-        name = name,
-        desc = desc,
-        qty = qty,
-        price = price,
-        img = img,
-        category = category,
-        shop = shop,
-    )
-    return render(request, "shop-profile.html", {"msg": "เพิ่มสินค้าสำเร็จ"})
