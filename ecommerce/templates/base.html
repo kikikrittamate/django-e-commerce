@@ -29,7 +29,7 @@
 
         {% if user.is_authenticated %}
         <li>
-          <button href="#">{{ user.username }}</button>
+          <a  href="{% url 'ecommerce:shop-profile' user.id %}"><button>{{ user.username }}</button></a>
         </li>
         <li>
           <a  href="{% url 'ecommerce:logout' %}"><button>ออกจากระบบ</button></a>
