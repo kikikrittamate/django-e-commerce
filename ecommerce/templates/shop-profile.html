@@ -1,9 +1,54 @@
-{% extends "base.html" %}
-{% load static %}
+{% extends "base.html" %} {% load static %} {% block head %} {{ block.super }}
+<link rel="stylesheet" href="{% static 'css/shop.css' %}" />
+{% endblock %}
+
 
 
 <!-- add shop profile page here -->
 {% block content %}
 <h1>This is shop profile page</h1>
 <h1>You're looking at shop "{{ shop }}" of "{{ shop.owner }}" id: {{ shop.owner.id }} </h1>
+<div class="detail-card">
+  <img src="{{shop.img}}" />
+  <div class="card-detail">
+    <div class="detail-1">
+      <h2 class="shop-name">{{ shop.name }}</h2>
+      <p class="shop-desc">{{ shop.desc}}</p>
+      <p class="shop-phone">โทรศัพท์ {{ shop.phone }}</p>
+      <p class="shop-address">🏠
+        {{shop.address}} {{shop.city}} {{shop.state}} {{shop.country}}
+        {{shop.zipcode}}
+      </p>
+      <button>แก้ไขข้อมูล</button>
+    </div>
+  </div>
+</div>
+<h1 class="shop-msg">สินค้าทั้งหมด</h1>
+<div>
+  <form method="POST" action="{% url 'ecommerce:add-item-shop-submit' %}">
+    {% csrf_token %}
+    <label for="item-img-url">URLรูปภาพสินค้า:</label>
+    <input type="text" name="item-img-url" required="required"/>
+    <br />
+    <input type="submit" value="submit" />
+  </form>
+</div>
+<div class="product-container">
+  {% if items %} {% for item in items %}
+  <div class="item-card">
+    <a href="{% url 'ecommerce:product-detail' item.id %}"
+      ><img src="{{item.img}}"
+    /></a>
+    <h2>{{ item.name }}</h2>
+    <p class="item-category">{{ item.category}}</p>
+    <div class="item-data">
+      <h3 class="item-shop">{{ item.shop }}</h3>
+      <h3 class="item-quantity">จำนวน {{ item.qty }}</h3>
+      <h3 class="item-price">{{ item.price }} บาท</h3>
+    </div>
+  </div>
+  {% endfor %} {% else %}
+  <p class="no-item">ไม่มีสินค้าในขณะนี้</p>
+  {% endif %}
+</div>
 {% endblock %}
