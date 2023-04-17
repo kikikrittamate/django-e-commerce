@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from ecommerce.models import User, Customer, Shop, Item
+from django.contrib.auth.decorators import login_required
 
 
 def login_customer(request):
@@ -154,3 +155,12 @@ def validate_shop_name(shopname):
     except Shop.DoesNotExist:
         return True
     return False
+
+
+@login_required(login_url="/login")
+def customer_profile(request, customer_id):
+    if request.user.id != customer_id:
+        # msg: You are not customer
+        return render(request, 'error/403.html', status=403)
+    customer = Customer.objects.get(user_id=customer_id)
+    return render(request, 'customer-profile.html', { 'customer': customer } )

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block head %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/shop-profile.css' %}" />
+{% endblock %}
+
+
+<!-- add shop profile page here -->
+{% block content %}
+<h1 class="page-msg">ลูกค้า</h1>
+{% endblock %}

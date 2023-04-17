@@ -29,12 +29,13 @@
 
         {% if user.is_authenticated %}
         <li>
-          <a  href="{% url 'ecommerce:shop-profile' user.id %}"><button>{{ user.username }}</button></a>
+          <a  href="{% url 'ecommerce:shop-profile' user.id %}"><button>สำหรับร้านค้า {{ user.username }}</button></a>
+          <a  href="{% url 'ecommerce:customer-profile' user.id %}"><button>สำหรับลูกค้า {{ user.username }}</button></a>
         </li>
         <li>
           <a  href="{% url 'ecommerce:logout' %}"><button>ออกจากระบบ</button></a>
         </li>
-        {% else %}
+        {% else %} 
         <li>
           <a href="{% url 'ecommerce:login' %}"><button>เข้าสู่ระบบ</button></a>
         </li>
