@@ -17,7 +17,7 @@ urlpatterns = [
     # shop
     path('shop/<int:shop_id>', views.shop, name="shop"),
     path('shop/profile/<int:shop_id>', views.shop_profile, name="shop-profile"),
-    path('shop/profile/delete-item/<int:shop_id>', views.delete_item, name="delete-item"),
+    path('shop/profile/<int:shop_id>/delete-item/<int:item_id>', views.delete_item, name="delete-item"),
     path('shop/profile/<int:shop_id>/shop-add', views.shop_add, name="shop-add"),
     path('shop/profile/<int:shop_id>/shop-add/submit', views.add_item_shop_submit, name="add-item-shop-submit"),
     path('shop/login', views.login_shop, name='login-shop'),

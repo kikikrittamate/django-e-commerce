@@ -19,7 +19,7 @@
 <div class="container">
   {% if items_list %} {% for item in items_list %}
   <div class="item-card">
-    <a href="{% url 'ecommerce:product-detail' item.id %}"><img src="{{item.img}}" /></a>
+    <a href="{% url 'ecommerce:product-detail' item.id %}"><img class="item-img" src="{{item.img}}" /></a>
     <h2>{{ item.name }}</h2>
     <p class="item-category">{{ item.category}}</p>
     <div class="item-data">

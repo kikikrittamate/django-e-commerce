@@ -27,23 +27,23 @@
   </div>
 </div>
 <h1 class="shop-msg">สินค้าทั้งหมด</h1>
-<a href="{% url 'ecommerce:shop-add' shop_id=shop.owner.id %}"><button class="add-item-button" style="margin-left:85%;
-  margin-top: 10px;background-color: white;height: 60px;width: 180px;font-size: 24px;color: rgb(121, 64, 23);
-  border-radius: 27px;border: none;cursor: pointer;font-family: Kanit, sans-serif;">เพิ่มสินค้า</button></a>
+<a href="{% url 'ecommerce:shop-add' shop_id=shop.owner.id %}"><button class="add-item-button">เพิ่มสินค้า</button></a>
 <div class="product-container">
   {% if items %} {% for item in items %}
   <div class="item-card">
     <a href="{% url 'ecommerce:product-detail' item.id %}"
-      ><img src="{{item.img}}"
+      ><img class="item-img" src="{{item.img}}"
     /></a>
     <h2>{{ item.name }}</h2>
     <p class="item-category">{{ item.category}}</p>
     <div class="item-data">
-      <h3 class="item-shop">{{ item.shop }}</h3>
       <h3 class="item-quantity">จำนวน {{ item.qty }}</h3>
       <h3 class="item-price">{{ item.price }} บาท</h3>
     </div>
-    <a href="{% url 'ecommerce:delete-item' shop_id=shop.owner.id %}"><button>ลบสินค้า</button></a>
+    <div class="button-div">
+    <a href="{% url 'ecommerce:delete-item' shop_id=shop.owner.id item_id=item.id %}"><button class="delete-button">
+    ลบสินค้า</button></a>
+  </div>
   </div>
   {% endfor %} {% else %}
   <p class="no-item">ไม่มีสินค้าในขณะนี้</p>

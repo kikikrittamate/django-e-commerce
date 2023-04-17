@@ -86,11 +86,10 @@
   display: flex;
 }
 
-.item-card img {
+.item-img {
   height: 200px;
   width: 200px;
-  border: 2px;
-  border-color: black;
+  border-radius: 10px;
   align-items: center;
   margin-top: 25px;
   margin-left: 50px;

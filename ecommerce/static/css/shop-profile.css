@@ -86,11 +86,10 @@
   display: flex;
 }
 
-.item-card img {
+.item-img {
   height: 200px;
   width: 200px;
-  border: 2px;
-  border-color: black;
+  border-radius: 10px;
   align-items: center;
   margin-top: 25px;
   margin-left: 50px;
@@ -150,13 +149,32 @@
 .add-item-button {
   margin-left:85%;
   margin-top: 10px;
-  font-family: Kanit, sans-serif;
-  background-color: antiquewhite;
-  height: 50px;
+  background-color: white;
+  height: 60px;
   width: 180px;
-  font-size: 22px;
+  font-size: 24px;
   color: rgb(121, 64, 23);
   border-radius: 27px;
   border: none;
   cursor: pointer;
+  font-family: Kanit, sans-serif;
+}
+
+.delete-button {
+  font-family: Kanit, sans-serif;
+  background-color: red;
+  color: white;
+  border-radius: 10px;
+  width: 80px;
+  height: 25px;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.button-div {
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  margin-bottom: 5px;
 }
