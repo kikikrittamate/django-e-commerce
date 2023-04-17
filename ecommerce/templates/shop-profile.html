@@ -24,7 +24,7 @@
   </div>
 </div>
 <h1 class="shop-msg">สินค้าทั้งหมด</h1>
-<a href="{% url 'ecommerce:shop-add' shop.owner.id %}"><button>เพิ่มสินค้า</button></a>
+<a href="{% url 'ecommerce:shop-add' shop_id=shop.owner.id %}"><button>เพิ่มสินค้า</button></a>
 <div class="product-container">
   {% if items %} {% for item in items %}
   <div class="item-card">
