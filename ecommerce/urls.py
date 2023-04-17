@@ -15,6 +15,7 @@ urlpatterns = [
     path('products/<str:category>', views.products, name='products'),
     path('product-detail/<int:product_id>', views.product_detail, name='product-detail'),
     # shop
+    path('shop/<int:shop_id>', views.shop, name="shop"),
     path('shop/profile/<int:shop_id>', views.shop_profile, name="shop-profile"),
     path('shop/profile/<int:shop_id>/shop-add', views.shop_add, name="shop-add"),
     path('shop/profile/<int:shop_id>/shop-add/submit', views.add_item_shop_submit, name="add-item-shop-submit"),
@@ -22,5 +23,4 @@ urlpatterns = [
     path('shop/login/submit', views.login_shop_submit, name='login-shop-submit'),
     path('shop/register', views.register_shop, name="register-shop"),
     path('shop/register/submit', views.register_shop_submit, name="register-shop-submit"),
-    path('shop/<int:shop_id>', views.shop, name="shop"),
 ]

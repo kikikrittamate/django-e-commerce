@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from ..models import Shop, Item, Category
@@ -13,21 +13,32 @@ def shop(request, shop_id):
 
 @login_required(login_url="/shop/login")
 def shop_profile(request, shop_id):
+    if request.user.id != shop_id:
+        # msg: You are not shop owner
+        return render(request, 'error/403.html', status=403)
     shop = Shop.objects.get(owner_id=shop_id)
     items = Item.objects.filter(shop=shop)
-    # deny access from everyone except for owner
-    if shop.owner_id != request.user.id:
-        return render(request, 'error/403.html', status=403)
-    
+
     # TODO: add shop profile logic
     
     return render(request, 'shop-profile.html', { 'shop': shop, 'items': items } )
 
-def shop_add(request, shop_id):
-    shop=Shop.objects.get(owner_id=shop_id)
-    return render(request, 'shop-add.html', { 'shop': shop})
 
+@login_required(login_url="/shop/login")
+def shop_add(request, shop_id):
+    if request.user.id != shop_id:
+        # msg: You are not shop owner
+        return render(request, 'error/403.html', status=403)
+    shop=Shop.objects.get(owner_id=shop_id)
+    categories = Category.objects.all()
+    return render(request, 'shop-add.html', { 'shop': shop, 'categories': categories })
+
+
+@login_required(login_url="/shop/login")
 def add_item_shop_submit(request, shop_id):
+    if request.user.id != shop_id:
+        # msg: You are not shop owner
+        return render(request, 'error/403.html', status=403)
     name = request.POST.get('name')
     desc = request.POST.get('desc')
     qty = request.POST.get('qty')
@@ -47,4 +58,4 @@ def add_item_shop_submit(request, shop_id):
         category = category,
         shop = shop,
     )
-    return render(request, 'shop-profile.html', {"msg": "เพิ่มสินค้าสำเร็จ"})
+    return redirect(reverse("ecommerce:shop-profile", kwargs={"shop_id": shop.owner_id}))
