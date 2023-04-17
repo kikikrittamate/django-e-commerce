@@ -178,3 +178,16 @@
   display: flex;
   margin-bottom: 5px;
 }
+
+.edit-button {
+  margin-top: 10px;
+  font-family: "Kanit", sans-serif;
+  background-color: antiquewhite;
+  height: 50px;
+  width: 180px;
+  font-size: 22px;
+  color: rgb(121, 64, 23);
+  border-radius: 27px;
+  border: none;
+  cursor: pointer;
+}

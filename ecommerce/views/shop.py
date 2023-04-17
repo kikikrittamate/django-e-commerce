@@ -69,3 +69,32 @@ def delete_item(request, shop_id, item_id):
     item.delete()
     shop=Shop.objects.get(owner_id=shop_id)
     return redirect(reverse("ecommerce:shop-profile", kwargs={"shop_id": shop.owner_id}))
+
+
+@login_required(login_url="/shop/login")
+def shop_edit(request, shop_id):
+    if request.user.id != shop_id:
+        # msg: You are not shop owner
+        return render(request, 'error/403.html', status=403)
+    shop=Shop.objects.get(owner_id=shop_id)
+    return render(request, 'edit-shop-profile.html', { 'shop': shop})
+
+
+@login_required(login_url="/shop/login")
+def edit_shop_profile_submit(request, shop_id):
+    if request.user.id != shop_id:
+        # msg: You are not shop owner
+        return render(request, 'error/403.html', status=403)
+    shop=Shop.objects.get(owner_id=shop_id)
+    if request.method == "POST":
+        shop.desc = request.POST.get('desc')
+        shop.address = request.POST.get('address')
+        shop.city = request.POST.get('city')
+        shop.state = request.POST.get('state')
+        shop.country = request.POST.get('country')
+        shop.zipcode = request.POST.get('zipcode')
+        shop.phone = request.POST.get('phone')
+        shop.img = request.POST.get('img')
+        shop.save()
+    context={ 'shop': shop }
+    return redirect(reverse("ecommerce:shop-profile", kwargs={"shop_id": shop.owner_id}), context)

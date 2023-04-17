@@ -22,7 +22,9 @@
         {{shop.address}} {{shop.city}} {{shop.state}} {{shop.country}}
         {{shop.zipcode}}
       </p>
-      <button>แก้ไขข้อมูล</button>
+      <div class="button-div">
+        <a href="{% url 'ecommerce:shop-edit' shop_id=shop.owner.id %}"><button class="edit-button">แก้ไขข้อมูล</button></a>
+      </div>
     </div>
   </div>
 </div>
