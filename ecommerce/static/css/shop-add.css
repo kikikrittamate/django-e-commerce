@@ -1,0 +1,50 @@
+.page-msg {
+  color: rgb(121, 64, 23);
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 40px;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+}
+
+.form-container {
+  margin-right: 200px;
+  margin-left: 200px;
+  border-radius: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: white;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  
+}
+
+.the-form {
+  font-size: 20px;
+  margin:20px;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+}
+
+.input-bar {
+  font-family: "Kanit", sans-serif;
+  width:500px;
+  height:40px;
+  font-size: 20px;
+}
+
+.submit-button {
+  margin-top: 10px;
+  font-family: "Kanit", sans-serif;
+  background-color: antiquewhite;
+  height: 50px;
+  width: 180px;
+  font-size: 22px;
+  color: rgb(121, 64, 23);
+  border-radius: 27px;
+  border: none;
+  cursor: pointer;
+}

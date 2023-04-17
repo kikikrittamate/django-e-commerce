@@ -59,3 +59,12 @@ def add_item_shop_submit(request, shop_id):
         shop = shop,
     )
     return redirect(reverse("ecommerce:shop-profile", kwargs={"shop_id": shop.owner_id}))
+
+@login_required(login_url="/shop/login")
+def delete_item(request, shop_id):
+    if request.user.id != shop_id:
+        # msg: You are not shop owner
+        return render(request, 'error/403.html', status=403)
+    item = Item.objects.get(item_id=item.id)
+    item.delete()
+    return redirect(reverse("ecommerce:shop-profile", kwargs={"shop_id": shop.owner_id}))

@@ -1,36 +1,41 @@
-{% extends "base.html" %} {% load static %} {% block head %} {{ block.super }}
-<link rel="stylesheet" href="{% static 'css/shop-profile.css' %}" />
-{% endblock %}
+{% extends "base.html" %}
+{% load static %}
 
+
+{% block head %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/shop-add.css' %}" />
+{% endblock %}
 
 <!-- add shop profile page here -->
 {% block content %}
-
-  <form method="post" action="{% url 'ecommerce:add-item-shop-submit' shop_id=shop.owner.id %}">
+<h1 class="page-msg">ฟอร์มสินค้า</h1>
+<div class="form-container">
+  <form class="the-form" method="post" action="{% url 'ecommerce:add-item-shop-submit' shop_id=shop.owner.id %}">
     {% csrf_token %}
     <label for="name">ชื่อสินค้า:</label>
-    <input type="text" name="name" required="required"/>
+    <input class="input-bar" type="text" name="name" required="required"/>
     <br />
     <label for="desc">คำอธิบายสินค้า:</label>
-    <input type="text" name="desc" required="required"/>
+    <input class="input-bar" type="text" name="desc" required="required"/>
     <br />
     <label for="qty">จำนวน:</label>
-    <input type="text" name="qty" required="required"/>
+    <input class="input-bar" type="text" name="qty" required="required"/>
     <br />
     <label for="price">ราคา:</label>
-    <input type="text" name="price" required="required"/>
+    <input class="input-bar" type="text" name="price" required="required"/>
     <br />
     <label for="img">URLรูปภาพ:</label>
-    <input type="text" name="img" required="required"/>
+    <input class="input-bar" type="text" name="img" required="required"/>
     <br />
     <label for="category">ประเภทสินค้า:</label>
-    <select name="category" >
+    <select class="input-bar" name="category" >
     {% for category in categories %}
-      <option value="{{ category.id }}">{{ category.name }}</option>
+      <option class="input-bar" value="{{ category.id }}">{{ category.name }}</option>
     {% endfor %}
     </select>
     <br />
-    <input type="submit" value="ยืนยัน" />
+    <input class="submit-button" type="submit" value="เพิ่มสินค้า" />
   </form>
 </div>
 {% endblock %}

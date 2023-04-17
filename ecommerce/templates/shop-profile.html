@@ -1,13 +1,16 @@
-{% extends "base.html" %} {% load static %} {% block head %} {{ block.super }}
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block head %}
+{{ block.super }}
 <link rel="stylesheet" href="{% static 'css/shop-profile.css' %}" />
 {% endblock %}
 
 
-
 <!-- add shop profile page here -->
 {% block content %}
-<h1>This is shop profile page</h1>
-<h1>You're looking at shop "{{ shop }}" of "{{ shop.owner }}" id: {{ shop.owner.id }} </h1>
+<h1 class="page-msg">หน้าร้านของคุณ</h1>
 <div class="detail-card">
   <img src="{{shop.img}}" />
   <div class="card-detail">
@@ -24,7 +27,9 @@
   </div>
 </div>
 <h1 class="shop-msg">สินค้าทั้งหมด</h1>
-<a href="{% url 'ecommerce:shop-add' shop_id=shop.owner.id %}"><button>เพิ่มสินค้า</button></a>
+<a href="{% url 'ecommerce:shop-add' shop_id=shop.owner.id %}"><button class="add-item-button" style="margin-left:85%;
+  margin-top: 10px;background-color: white;height: 60px;width: 180px;font-size: 24px;color: rgb(121, 64, 23);
+  border-radius: 27px;border: none;cursor: pointer;font-family: Kanit, sans-serif;">เพิ่มสินค้า</button></a>
 <div class="product-container">
   {% if items %} {% for item in items %}
   <div class="item-card">
@@ -38,6 +43,7 @@
       <h3 class="item-quantity">จำนวน {{ item.qty }}</h3>
       <h3 class="item-price">{{ item.price }} บาท</h3>
     </div>
+    <a href="{% url 'ecommerce:delete-item' shop_id=shop.owner.id %}"><button>ลบสินค้า</button></a>
   </div>
   {% endfor %} {% else %}
   <p class="no-item">ไม่มีสินค้าในขณะนี้</p>
