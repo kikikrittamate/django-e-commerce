@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block head %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/customer-edit.css' %}" />
+{% endblock %}
+
+
+{% block content %}
+<h1 class="page-msg">แก้ไขข้อมูลส่วนตัว</h1>
+<div class="form-container">
+<form class="the-form" method="POST" action="{% url 'ecommerce:edit-customer-profile-submit' user.id %}">
+    {% csrf_token %}
+    <label for="img">URLรูปโปรไฟล์</label>
+    <input class="input-bar" type="text" name="img" required="required"/>
+    <br />
+    <label for="email">อีเมลล์</label>
+    <input class="input-bar" type="text" name="email">
+    <br />
+    <label for="phone">เบอร์โทรศัพท์</label>
+    <input class="input-bar" type="text" name="phone" required="required"/>
+    <br />
+    <label for="address">ที่อยู่</label>
+    <input class="input-bar" type="text" name="address" required="required"/>
+    <br />
+    <label for="city">อำเภอ</label>
+    <input class="input-bar" type="text" name="city" required="required"/>
+    <br />
+    <label for="state">จังหวัด</label>
+    <input class="input-bar" type="text" name="state" required="required"/>
+    <br />
+    <label for="country">ประเทศ</label>
+    <input class="input-bar" type="text" name="country" required="required"/>
+    <br />
+    <label for="zipcode">หมายเลขไปรษณีย์</label>
+    <input class="input-bar" type="text" name="zipcode" required="required"/>
+    <br />
+    <input class="submit-button" type="submit" value="submit" />
+</form>
+</div>
+{% endblock %}

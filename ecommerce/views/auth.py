@@ -35,7 +35,7 @@ def register_customer_submit(request):
     firstname = request.POST.get('firstname')
     lastname = request.POST.get('lastname')
     email = request.POST.get('email')
-    phone = request.POST.get('lastname')
+    phone = request.POST.get('phone')
     address = request.POST.get('address')
     city = request.POST.get('city')
     state = request.POST.get('state')
@@ -98,7 +98,7 @@ def register_shop_submit(request):
     firstname = request.POST.get('firstname')
     lastname = request.POST.get('lastname')
     email = request.POST.get('email')
-    phone = request.POST.get('lastname')
+    phone = request.POST.get('phone')
     shopname = request.POST.get('shopname')
     address = request.POST.get('address')
     city = request.POST.get('city')
@@ -164,3 +164,31 @@ def customer_profile(request, customer_id):
         return render(request, 'error/403.html', status=403)
     customer = Customer.objects.get(user_id=customer_id)
     return render(request, 'customer-profile.html', { 'customer': customer } )
+
+@login_required(login_url="/login")
+def customer_edit(request, customer_id):
+    if request.user.id != customer_id:
+        # msg: You are not customer
+        return render(request, 'error/403.html', status=403)
+    customer=Customer.objects.get(user_id=customer_id)
+    return render(request, 'edit-customer-profile.html', { 'customer': customer})
+
+
+@login_required(login_url="/login")
+def edit_customer_profile_submit(request, customer_id):
+    if request.user.id != customer_id:
+        # msg: You are not customer
+        return render(request, 'error/403.html', status=403)
+    customer=Customer.objects.get(user_id=customer_id)
+    if request.method == "POST":
+        customer.email = request.POST.get('desc')
+        customer.phone = request.POST.get('phone')
+        customer.address = request.POST.get('address')
+        customer.city = request.POST.get('city')
+        customer.state = request.POST.get('state')
+        customer.country = request.POST.get('country')
+        customer.zipcode = request.POST.get('zipcode')
+        customer.img = request.POST.get('img')
+        customer.save()
+    context={ 'customer': customer }
+    return redirect(reverse("ecommerce:customer-profile", kwargs={"customer_id": customer.user_id}), context)
