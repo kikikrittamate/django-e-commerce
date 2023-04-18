@@ -38,29 +38,24 @@
   padding-top: 20px;
 }
 
-.shop-name {
+.c-name {
   font-size: 40px;
 }
 
-.shop-desc {
+
+.c-phone {
   margin-top: 10px;
   font-weight: lighter;
   font-size: 20px;
 }
 
-.shop-phone {
+.c-email {
   margin-top: 10px;
   font-weight: lighter;
   font-size: 20px;
 }
 
-.shop-email {
-  margin-top: 10px;
-  font-weight: lighter;
-  font-size: 20px;
-}
-
-.shop-address {
+.c-address {
   margin-top: 10px;
   font-weight: lighter;
   font-size: 20px;
@@ -84,7 +79,7 @@
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
-.shop-msg {
+.cart-msg {
   margin-top: 50px;
   color: rgb(121, 64, 23);
   align-items: center;
@@ -152,19 +147,6 @@
   display: flex;
 }
 
-.add-item-button {
-  margin-left:85%;
-  margin-top: 10px;
-  background-color: white;
-  height: 60px;
-  width: 180px;
-  font-size: 24px;
-  color: rgb(121, 64, 23);
-  border-radius: 27px;
-  border: none;
-  cursor: pointer;
-  font-family: Kanit, sans-serif;
-}
 
 .delete-button {
   font-family: Kanit, sans-serif;
@@ -179,6 +161,7 @@
 }
 
 .button-div {
+  margin-top: 10px;
   align-items: center;
   flex-direction: column;
   display: flex;
@@ -197,3 +180,4 @@
   border: none;
   cursor: pointer;
 }
+

@@ -11,6 +11,8 @@ urlpatterns = [
     path('register', views.register_custemer, name='register'),
     path('register/submit', views.register_customer_submit, name='register-submit'),
     path('customer/profile/<int:customer_id>', views.customer_profile, name="customer-profile"),
+    path('customer/profile/<int:customer_id>/edit-profile', views.customer_edit, name="customer-edit"),
+    path('customer/profile/<int:customer_id>/edit-profile/submit', views.edit_customer_profile_submit, name="edit-customer-profile-submit"),
     # products
     path('products/search', views.search_products, name='search'),
     path('products/<str:category>', views.products, name='products'),

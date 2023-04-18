@@ -4,11 +4,30 @@
 
 {% block head %}
 {{ block.super }}
-<link rel="stylesheet" href="{% static 'css/shop-profile.css' %}" />
+<link rel="stylesheet" href="{% static 'css/customer-profile.css' %}" />
 {% endblock %}
 
 
 <!-- add shop profile page here -->
 {% block content %}
-<h1 class="page-msg">ลูกค้า</h1>
+<h1 class="page-msg">โปรไฟล์ของคุณ</h1>
+<div class="detail-card">
+  <img src="{{customer.img}}" />
+  <div class="card-detail">
+    <div class="detail-1">
+      <h2 class="c-name">{{ user.first_name }} {{ user.last_name }}</h2>
+      <p class="c-phone">โทรศัพท์ {{ customer.phone }}</p>
+      <p class="c-email">อีเมลล์ {{ user.email }}</p>
+      <p class="c-address">🏠
+        {{customer.address}} {{customer.city}} {{customer.state}} {{customer.country}}
+        {{customer.zipcode}}
+      </p>
+      <div class="button-div">
+        <a href="{% url 'ecommerce:customer-edit' user.id %}"><button class="edit-button">แก้ไขข้อมูล</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+<h1 class="cart-msg">ตะกร้าของคุณ</h1>
+<div class="product-container">สินค้า</div>
 {% endblock %}

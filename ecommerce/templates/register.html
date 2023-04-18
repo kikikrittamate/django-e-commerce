@@ -4,7 +4,7 @@
 
 {% block head %}
 {{ block.super }}
-
+<link rel="stylesheet" href="{% static 'css/login-register.css' %}" />
 <!-- show message after unsuccessful login -->
 {% if msg %}
 <script>
@@ -17,47 +17,49 @@
 
 
 {% block content %}
-<h1>Register</h1>
-<form method="POST" action="{% url 'ecommerce:register-submit' %}">
+<h1 class="page-msg">สมัครสมาชิก</h1>
+<div class="form-container">
+<form class="the-form" method="POST" action="{% url 'ecommerce:register-submit' %}">
     {% csrf_token %}
-    <label for="username">username:</label>
-    <input type="text" name="username" required="required"/>
+    <label for="username">username</label>
+    <input class="input-bar" type="text" name="username" required="required"/>
     <br />
-    <label for="password">password:</label>
-    <input type="password" name="password" required="required"/>
+    <label for="password">password</label>
+    <input class="input-bar" type="password" name="password" required="required"/>
     <br />
-    <label for="cf-password">confirm:</label>
-    <input type="password" name="cf-password" required="required"/>
+    <label for="cf-password">confirm password</label>
+    <input class="input-bar" type="password" name="cf-password" required="required"/>
     <br />
-    <label for="emial">email:</label>
-    <input type="email" name="email" required="required" />
+    <label for="email">อีเมลล์</label>
+    <input class="input-bar" type="email" name="email" required="required" />
     <br />
-    <h2>Personal Information</h2>
-    <label for="firstname">firstname:</label>
-    <input type="text" name="firstname" required="required"/>
+    <h2 class="inf-type">ข้อมูลส่วนตัว</h2>
+    <label for="firstname">ชื่อ</label>
+    <input class="input-bar" type="text" name="firstname" required="required"/>
     <br />
-    <label for="lastname">lastname:</label>
-    <input type="text" name="lastname" required="required"/>
+    <label for="lastname">นามสกุล</label>
+    <input class="input-bar" type="text" name="lastname" required="required"/>
     <br />
-    <label for="phone">phone:</label>
-    <input type="text" name="phone" required="required"/>
+    <label for="phone">เบอร์โทรศัพท์</label>
+    <input class="input-bar" type="text" name="phone" required="required"/>
     <br />
-    <h2>Address</h2>
-    <label for="address">address:</label>
-    <input type="text" name="address" required="required"/>
+    <h2 class="inf-type">ที่อยู่</h2>
+    <label for="address">ที่อยู่</label>
+    <input class="input-bar" type="text" name="address" required="required"/>
     <br />
-    <label for="city">city:</label>
-    <input type="text" name="city" required="required"/>
+    <label for="city">อำเภอ</label>
+    <input class="input-bar" type="text" name="city" required="required"/>
     <br />
-    <label for="state">state:</label>
-    <input type="text" name="state" required="required"/>
+    <label for="state">จังหวัด</label>
+    <input class="input-bar" type="text" name="state" required="required"/>
     <br />
-    <label for="country">country:</label>
-    <input type="text" name="country" required="required"/>
+    <label for="country">ประเทศ</label>
+    <input class="input-bar" type="text" name="country" required="required"/>
     <br />
-    <label for="zipcode">zipcode:</label>
-    <input type="text" name="zipcode" required="required"/>
+    <label for="zipcode">รหัสไปรษณีย์</label>
+    <input class="input-bar" type="text" name="zipcode" required="required"/>
     <br />
-    <input type="submit" value="submit" />
+    <input class="submit-button" type="submit" value="สมัครสมาชิก" />
 </form>
+</div>
 {% endblock %}
