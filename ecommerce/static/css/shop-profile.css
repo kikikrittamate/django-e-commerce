@@ -2,7 +2,7 @@
   color: rgb(121, 64, 23);
   margin-top: 30px;
   margin-bottom: 30px;
-  font-size: 50px;
+  font-size: 40px;
   align-items: center;
   flex-direction: column;
   display: flex;
@@ -135,10 +135,6 @@
   padding-right: 10px;
 }
 
-.shop-img {
-  height: 20px;
-  width: 20px;
-}
 
 .no-item {
   color: rgb(151, 151, 151);
@@ -148,4 +144,50 @@
   align-items: center;
   flex-direction: column;
   display: flex;
+}
+
+.add-item-button {
+  margin-left:85%;
+  margin-top: 10px;
+  background-color: white;
+  height: 60px;
+  width: 180px;
+  font-size: 24px;
+  color: rgb(121, 64, 23);
+  border-radius: 27px;
+  border: none;
+  cursor: pointer;
+  font-family: Kanit, sans-serif;
+}
+
+.delete-button {
+  font-family: Kanit, sans-serif;
+  background-color: red;
+  color: white;
+  border-radius: 10px;
+  width: 80px;
+  height: 25px;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.button-div {
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.edit-button {
+  margin-top: 10px;
+  font-family: "Kanit", sans-serif;
+  background-color: antiquewhite;
+  height: 50px;
+  width: 180px;
+  font-size: 22px;
+  color: rgb(121, 64, 23);
+  border-radius: 27px;
+  border: none;
+  cursor: pointer;
 }

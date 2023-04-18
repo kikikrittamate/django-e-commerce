@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block head %}
+{{ block.super }}
+
+{% endblock %}
+
+
+{% block content %}
+<h1>แก้ไขข้อมูลร้านค้า</h1>
+<form method="POST" action="{% url 'ecommerce:edit-shop-profile-submit' shop_id=shop.owner.id %}">
+    {% csrf_token %}
+    <label for="img">URLรูปโปรไฟล์:</label>
+    <input  type="text" name="img" required="required"/>
+    <br />
+    <label for="address">address:</label>
+    <input type="text" name="address" required="required"/>
+    <br />
+    <label for="city">city:</label>
+    <input type="text" name="city" required="required"/>
+    <br />
+    <label for="state">state:</label>
+    <input type="text" name="state" required="required"/>
+    <br />
+    <label for="country">country:</label>
+    <input type="text" name="country" required="required"/>
+    <br />
+    <label for="zipcode">zipcode:</label>
+    <input type="text" name="zipcode" required="required"/>
+    <br />
+    <label for="phone">phone:</label>
+    <input type="text" name="phone" required="required"/>
+    <br />
+    <label for="desc">description</label>
+    <input type="text" name="desc">
+    <br />
+    <input type="submit" value="submit" />
+</form>
+{% endblock %}

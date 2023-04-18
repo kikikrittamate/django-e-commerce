@@ -5,7 +5,7 @@
   <head>
     {% block head %}
     <meta charset="UTF-8" />
-    <title>djanogo-ecommerce</title>
+    <title>django-ecommerce</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
     <link rel="stylesheet" href="{% static 'css/searchbar.css' %}" />
@@ -29,12 +29,13 @@
 
         {% if user.is_authenticated %}
         <li>
-          <button href="#">{{ user.username }}</button>
+          <a  href="{% url 'ecommerce:shop-profile' user.id %}"><button>ร้านค้า {{ user.username }}</button></a>
+          <a  href="{% url 'ecommerce:customer-profile' user.id %}"><button>ลูกค้า {{ user.username }}</button></a>
         </li>
         <li>
           <a  href="{% url 'ecommerce:logout' %}"><button>ออกจากระบบ</button></a>
         </li>
-        {% else %}
+        {% else %} 
         <li>
           <a href="{% url 'ecommerce:login' %}"><button>เข้าสู่ระบบ</button></a>
         </li>
@@ -44,7 +45,9 @@
     {% endblock %}
 
     <div id="content">{% block content %}{% endblock %}</div>
-    <footer class="page-footer">
+    <footer class="page-footer" style="position: sticky;
+    top:100%;
+    padding: 10px;">
       <p class="footer-msg">principles of software architecture project</p>
     </footer>
   </body>
