@@ -4,7 +4,7 @@
 
 {% block head %}
 {{ block.super }}
-
+<link rel="stylesheet" href="{% static 'css/login-register.css' %}" />
 <!-- show message after unsuccessful login -->
 {% if msg %}
 <script>
@@ -17,19 +17,21 @@
 
 
 {% block content %}
-<h1>Login</h1>
-<form method="POST" action="{% url 'ecommerce:login-submit' %}">
+<h1 class="page-msg">เข้าสู่ระบบสำหรับลูกค้า</h1>
+<div class="form-container">
+<form class="the-form" method="POST" action="{% url 'ecommerce:login-submit' %}">
     {% csrf_token %}
-    <label for="username">username:</label>
-    <input type="text" name="username" required="required"/>
+    <label for="username">username</label>
+    <input class="input-bar" type="text" name="username" required="required"/>
     <br />
-    <label for="password">password:</label>
-    <input type="password" name="password" required="required"/>
+    <label for="password">password</label>
+    <input class="input-bar" type="password" name="password" required="required"/>
     <br />
-    <input type="submit" value="login" />
+    <input class="submit-button"type="submit" value="เข้าสู่ระบบ" />
 </form>
 
-<a href="{% url 'ecommerce:register' %}">register</a>
+<a href="{% url 'ecommerce:register' %}">สมัครสมาชิก</a>
 <br />
-<a href="{% url 'ecommerce:login-shop' %}">login shop</a>
+<a href="{% url 'ecommerce:login-shop' %}">เข้าสู่ระบบสำหรับร้านค้า</a>
+</div>
 {% endblock %}

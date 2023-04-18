@@ -1,8 +1,13 @@
-{% extends "base.html" %} {% load static %} {% block head %} {{ block.super }}
+{% extends "base.html" %} 
+{% load static %} 
+
+
+{% block head %} 
+{{ block.super }}
 <link rel="stylesheet" href="{% static 'css/product-detail.css' %}" />
 {% endblock %}
 
-<!-- this is only temp, please edit this as you wish -->
+
 {% block content %}
 <h1 class="page-msg">สินค้าที่เลือก</h1>
 <div class="detail-card">
