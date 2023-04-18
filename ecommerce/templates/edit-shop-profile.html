@@ -4,38 +4,40 @@
 
 {% block head %}
 {{ block.super }}
-
+<link rel="stylesheet" href="{% static 'css/shop-edit.css' %}" />
 {% endblock %}
 
 
 {% block content %}
-<h1>แก้ไขข้อมูลร้านค้า</h1>
-<form method="POST" action="{% url 'ecommerce:edit-shop-profile-submit' shop_id=shop.owner.id %}">
+<h1 class="page-msg">แก้ไขข้อมูลร้านค้า</h1>
+<div class="form-container">
+<form class="the-form" method="POST" action="{% url 'ecommerce:edit-shop-profile-submit' shop_id=shop.owner.id %}">
     {% csrf_token %}
-    <label for="img">URLรูปโปรไฟล์:</label>
-    <input  type="text" name="img" required="required"/>
+    <label for="img">URLรูปโปรไฟล์</label>
+    <input class="input-bar" type="text" name="img" required="required"/>
     <br />
-    <label for="address">address:</label>
-    <input type="text" name="address" required="required"/>
+    <label for="desc">คำอธิบายร้านค้า</label>
+    <input class="input-bar" type="text" name="desc">
     <br />
-    <label for="city">city:</label>
-    <input type="text" name="city" required="required"/>
+    <label for="phone">เบอร์โทรศัพท์</label>
+    <input class="input-bar" type="text" name="phone" required="required"/>
     <br />
-    <label for="state">state:</label>
-    <input type="text" name="state" required="required"/>
+    <label for="address">ที่อยู่</label>
+    <input class="input-bar" type="text" name="address" required="required"/>
     <br />
-    <label for="country">country:</label>
-    <input type="text" name="country" required="required"/>
+    <label for="city">อำเภอ</label>
+    <input class="input-bar" type="text" name="city" required="required"/>
     <br />
-    <label for="zipcode">zipcode:</label>
-    <input type="text" name="zipcode" required="required"/>
+    <label for="state">จังหวัด</label>
+    <input class="input-bar" type="text" name="state" required="required"/>
     <br />
-    <label for="phone">phone:</label>
-    <input type="text" name="phone" required="required"/>
+    <label for="country">ประเทศ</label>
+    <input class="input-bar" type="text" name="country" required="required"/>
     <br />
-    <label for="desc">description</label>
-    <input type="text" name="desc">
+    <label for="zipcode">รหัสไปรษณีย์</label>
+    <input class="input-bar" type="text" name="zipcode" required="required"/>
     <br />
-    <input type="submit" value="submit" />
+    <input class="submit-button" type="submit" value="ยืนยัน" />
 </form>
+</div>
 {% endblock %}
