@@ -15,5 +15,8 @@ def search_products(request):
 
 
 def product_detail(request, product_id):
-    product = Item.objects.get(id=product_id)
+    try:
+        product = Item.objects.get(id=product_id)
+    except:
+        return render(request, 'error/404.html')
     return render(request, 'product-detail.html', { 'item': product })
