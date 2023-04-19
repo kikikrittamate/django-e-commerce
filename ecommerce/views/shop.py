@@ -3,6 +3,9 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from ..models import Shop, Item, Category
 from django.contrib.auth.models import User
+import requests
+import os
+from webapp.settings import IMAGE_API_ROOT, IMAGE_API_TOKEN, S3_URL
 
 def shop(request, shop_id):
     shop = Shop.objects.get(owner_id=shop_id)
@@ -43,7 +46,7 @@ def add_item_shop_submit(request, shop_id):
     desc = request.POST.get('desc')
     qty = request.POST.get('qty')
     price = request.POST.get('price')
-    img = request.POST.get('img')
+
     category_id = request.POST.get('category')
     category = Category.objects.get(id=category_id)
     shop=Shop.objects.get(owner_id=shop_id)
@@ -54,10 +57,18 @@ def add_item_shop_submit(request, shop_id):
         desc = desc,
         qty = qty,
         price = price,
-        img = img or "",
         category = category,
         shop = shop,
     )
+
+    # TODO: check file type only to be jpg
+
+    # upload image
+    img = request.FILES['img']
+    upload_image(img.file, f"item-{item.id}.jpg")
+    item.img = os.path.join(S3_URL, f"item-{item.id}.jpg")
+    item.save()
+
     return redirect(reverse("ecommerce:shop-profile", kwargs={"shop_id": shop.owner_id}))
 
 @login_required(login_url="/shop/login")
@@ -98,3 +109,14 @@ def edit_shop_profile_submit(request, shop_id):
         shop.save()
     context={ 'shop': shop }
     return redirect(reverse("ecommerce:shop-profile", kwargs={"shop_id": shop.owner_id}), context)
+
+
+def upload_image(content, fname):
+    url = os.path.join(IMAGE_API_ROOT, fname)
+    payload = content
+    headers = {
+    'x-api-key': IMAGE_API_TOKEN,
+    'Content-Type': 'image/jpeg'
+    }
+    response = requests.request("PUT", url, headers=headers, data=payload)
+    print(response.status_code)

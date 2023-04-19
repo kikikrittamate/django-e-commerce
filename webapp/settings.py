@@ -132,5 +132,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'ecommerce/static/images/')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Image Storage API
 IMAGE_API_ROOT = config('IMAGE_API_ROOT', cast=str, default="")
 IMAGE_API_TOKEN = config('IMAGE_API_TOKEN', cast=str, default="")
+S3_URL = config('S3_URL', cast=str, default="")
