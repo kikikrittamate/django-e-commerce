@@ -34,9 +34,15 @@
 <div class="product-container">
   {% if items %} {% for item in items %}
   <div class="item-card">
-    <a href="{% url 'ecommerce:product-detail' item.id %}"
-      ><img class="item-img" src="{{item.img}}"
-    /></a>
+    {% if not item.is_deleted %}
+    <a href="{% url 'ecommerce:product-detail' item.id %}">
+      <img class="item-img" src="{{item.img}}"/>
+    </a>
+    {% else %}
+    <a href="{% url 'ecommerce:product-detail' item.id %}">
+      <img class="item-img" src="{{item.img}}" style="opacity: 0.5"/>
+    </a>
+    {% endif %}
     <h2>{{ item.name }}</h2>
     <p class="item-category">{{ item.category}}</p>
     <div class="item-data">
@@ -44,8 +50,12 @@
       <h3 class="item-price">{{ item.price }} บาท</h3>
     </div>
     <div class="button-div">
+    {% if not item.is_deleted %}
     <a href="{% url 'ecommerce:delete-item' shop_id=shop.owner.id item_id=item.id %}"><button class="delete-button">
     ลบสินค้า</button></a>
+    {% else %}
+    <a><button disabled class="delete-button" style="opacity: 0.5;">ลบแล้ว</button></a>
+    {% endif %}
   </div>
   </div>
   {% endfor %} {% else %}

@@ -12,7 +12,7 @@ def shop(request, shop_id):
         shop = Shop.objects.get(owner_id=shop_id)
     except Shop.DoesNotExist:
         return render(request, 'error/404.html')
-    items = Item.objects.filter(shop=shop)
+    items = Item.objects.filter(shop=shop, is_deleted=False)
     return render(request, 'shop.html', { 'shop': shop, 'items': items} )
 
 
@@ -77,7 +77,8 @@ def delete_item(request, shop_id, item_id):
         # msg: You are not shop owner
         return render(request, 'error/403.html', status=403)
     item = Item.objects.get(id=item_id)
-    item.delete()
+    item.is_deleted = True
+    item.save()
     shop=Shop.objects.get(owner_id=shop_id)
     return redirect(reverse("ecommerce:shop-profile", kwargs={"shop_id": shop.owner_id}))
 

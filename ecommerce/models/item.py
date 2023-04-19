@@ -12,6 +12,7 @@ class Item(models.Model):
     img = models.URLField(verbose_name="image url")
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     shop = models.ForeignKey(Shop, on_delete=models.CASCADE)
+    is_deleted = models.BooleanField(default=False)
 
     def __str__(self) -> str:
         return self.name
