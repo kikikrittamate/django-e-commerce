@@ -8,9 +8,11 @@ import os
 from webapp.settings import IMAGE_API_ROOT, IMAGE_API_TOKEN, S3_URL
 
 def shop(request, shop_id):
-    shop = Shop.objects.get(owner_id=shop_id)
+    try:
+        shop = Shop.objects.get(owner_id=shop_id)
+    except Shop.DoesNotExist:
+        return render(request, 'error/404.html')
     items = Item.objects.filter(shop=shop)
-    print(shop.name)
     return render(request, 'shop.html', { 'shop': shop, 'items': items} )
 
 
@@ -19,11 +21,11 @@ def shop_profile(request, shop_id):
     if request.user.id != shop_id:
         # msg: You are not shop owner
         return render(request, 'error/403.html', status=403)
-    shop = Shop.objects.get(owner_id=shop_id)
-    items = Item.objects.filter(shop=shop)
-
-    # TODO: add shop profile logic
-    
+    try:
+        shop = Shop.objects.get(owner_id=shop_id)
+    except Shop.DoesNotExist:
+        return render(request, 'error/404.html')
+    items = Item.objects.filter(shop=shop)    
     return render(request, 'shop-profile.html', { 'shop': shop, 'items': items } )
 
 

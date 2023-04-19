@@ -9,7 +9,10 @@ def customer_profile(request, customer_id):
     if request.user.id != customer_id:
         # msg: You are not customer
         return render(request, 'error/403.html', status=403)
-    customer = Customer.objects.get(user_id=customer_id)
+    try:
+        customer = Customer.objects.get(user_id=customer_id)
+    except:
+        return render(request, 'error/404.html')
     return render(request, 'customer-profile.html', { 'customer': customer } )
 
 
