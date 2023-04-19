@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-mh6m4s7pe1)+4+f3kdi+tkn9(7qoq*&0(0p&!!$(+yspdwmyvw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool, default=True)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=lambda v: [s.strip() for s in v.split(',')], default='*')
 
 
 # Application definition
@@ -42,6 +45,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', #add whitenoise
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -117,9 +121,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = 'ecommerce/static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'ecommerce/static')
 MEDIA_URL = 'images/'
-MEDIA_ROOT = 'ecommerce/static/images/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'ecommerce/static/images/')
 
 # STATICFILES_DIRS = [BASE_DIR / "static"]
 
@@ -127,3 +131,8 @@ MEDIA_ROOT = 'ecommerce/static/images/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Image Storage API
+IMAGE_API_ROOT = config('IMAGE_API_ROOT', cast=str, default="")
+IMAGE_API_TOKEN = config('IMAGE_API_TOKEN', cast=str, default="")
+S3_URL = config('S3_URL', cast=str, default="")

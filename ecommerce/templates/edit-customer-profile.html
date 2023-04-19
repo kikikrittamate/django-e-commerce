@@ -14,28 +14,28 @@
 <form class="the-form" method="POST" action="{% url 'ecommerce:edit-customer-profile-submit' user.id %}">
     {% csrf_token %}
     <label for="img">URLรูปโปรไฟล์</label>
-    <input class="input-bar" type="text" name="img" required="required"/>
+    <input class="input-bar" type="text" name="img" required="required" value="{{ customer.img }}"/>
     <br />
     <label for="email">อีเมลล์</label>
-    <input class="input-bar" type="text" name="email">
+    <input class="input-bar" type="text" name="email" value="{{ customer.user.email }}">
     <br />
     <label for="phone">เบอร์โทรศัพท์</label>
-    <input class="input-bar" type="text" name="phone" required="required"/>
+    <input class="input-bar" type="text" name="phone" required="required" value="{{ customer.phone }}"/>
     <br />
     <label for="address">ที่อยู่</label>
-    <input class="input-bar" type="text" name="address" required="required"/>
+    <input class="input-bar" type="text" name="address" required="required" value="{{ customer.address }}"/>
     <br />
     <label for="city">อำเภอ</label>
-    <input class="input-bar" type="text" name="city" required="required"/>
+    <input class="input-bar" type="text" name="city" required="required" value="{{ customer.city }}"/>
     <br />
     <label for="state">จังหวัด</label>
-    <input class="input-bar" type="text" name="state" required="required"/>
+    <input class="input-bar" type="text" name="state" required="required" value="{{ customer.state }}"/>
     <br />
     <label for="country">ประเทศ</label>
-    <input class="input-bar" type="text" name="country" required="required"/>
+    <input class="input-bar" type="text" name="country" required="required" value="{{ customer.country }}"/>
     <br />
     <label for="zipcode">หมายเลขไปรษณีย์</label>
-    <input class="input-bar" type="text" name="zipcode" required="required"/>
+    <input class="input-bar" type="text" name="zipcode" required="required" value="{{ customer.zipcode }}"/>
     <br />
     <input class="submit-button" type="submit" value="ยืนยัน" />
 </form>
