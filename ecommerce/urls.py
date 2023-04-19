@@ -4,12 +4,13 @@ from . import views
 app_name = 'ecommerce'
 urlpatterns = [
     path('', views.home, name='home'),
-    # customer
+    # auth
     path('login', views.login_customer, name='login'),
     path('login/submit', views.login_customer_submit, name='login-submit'),
     path('logout', views.logout_customer, name='logout'),
     path('register', views.register_custemer, name='register'),
     path('register/submit', views.register_customer_submit, name='register-submit'),
+    # customer
     path('customer/profile/<int:customer_id>', views.customer_profile, name="customer-profile"),
     path('customer/profile/<int:customer_id>/edit-profile', views.customer_edit, name="customer-edit"),
     path('customer/profile/<int:customer_id>/edit-profile/submit', views.edit_customer_profile_submit, name="edit-customer-profile-submit"),

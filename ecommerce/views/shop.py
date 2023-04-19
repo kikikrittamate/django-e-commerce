@@ -61,8 +61,6 @@ def add_item_shop_submit(request, shop_id):
         shop = shop,
     )
 
-    # TODO: check file type only to be jpg
-
     # upload image
     img = request.FILES['img']
     upload_image(img.file, f"item-{item.id}.jpg")
@@ -88,7 +86,7 @@ def shop_edit(request, shop_id):
         # msg: You are not shop owner
         return render(request, 'error/403.html', status=403)
     shop=Shop.objects.get(owner_id=shop_id)
-    return render(request, 'edit-shop-profile.html', { 'shop': shop})
+    return render(request, 'edit-shop-profile.html', { 'shop': shop })
 
 
 @login_required(login_url="/shop/login")
@@ -96,7 +94,7 @@ def edit_shop_profile_submit(request, shop_id):
     if request.user.id != shop_id:
         # msg: You are not shop owner
         return render(request, 'error/403.html', status=403)
-    shop=Shop.objects.get(owner_id=shop_id)
+    shop = Shop.objects.get(owner_id=shop_id)
     if request.method == "POST":
         shop.desc = request.POST.get('desc')
         shop.address = request.POST.get('address')
@@ -106,7 +104,9 @@ def edit_shop_profile_submit(request, shop_id):
         shop.zipcode = request.POST.get('zipcode')
         shop.phone = request.POST.get('phone')
         shop.img = request.POST.get('img')
+        shop.owner.email = request.POST.get('email')
         shop.save()
+        shop.owner.save()
     context={ 'shop': shop }
     return redirect(reverse("ecommerce:shop-profile", kwargs={"shop_id": shop.owner_id}), context)
 
