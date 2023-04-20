@@ -29,5 +29,20 @@
   </div>
 </div>
 <h1 class="cart-msg">ตะกร้าของคุณ</h1>
-<div class="product-container">สินค้า</div>
+<div class="product-container">
+  {% if items_in_cart %} {% for item in items_in_cart %}
+  <div class="item-card">
+    <a href="{% url 'ecommerce:product-detail' item.id %}"><img class="item-img" src="{{item.img}}" /></a>
+    <h2>{{ item.name }}</h2>
+    <p class="item-category">{{ item.category}}</p>
+    <div class="item-data">
+      <h3 class="item-shop">{{ item.shop }}</h3>
+      <h3 class="item-quantity">จำนวน {{ item.qty }}</h3>
+      <h3 class="item-price">{{ item.price }} บาท</h3>
+    </div>
+  </div>
+  {% endfor %} {% else %}
+  <p class="no-item">ไม่มีสินค้าในตะกร้า</p>
+  {% endif %}
+</div>
 {% endblock %}
