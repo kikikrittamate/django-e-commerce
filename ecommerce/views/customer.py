@@ -53,9 +53,9 @@ def add_to_cart(request, product_id, customer_id):
         # msg: You are not customer
         return render(request, 'error/403.html', status=403)
     item = Item.objects.get(id=product_id, is_deleted=False)
-    customer = Customer.objects.get(id=customer_id)
-    cart , _ = Cart.objects.get_or_create(customer=customer, is_paid=False)
-    cart_items = CartItems.object.create(cart=cart,item=item)
+    customer = Customer.objects.get(user_id=customer_id)
+    cart , _ = Cart.objects.get_or_create(customer=customer, is_ordered=False)
+    cart_items = CartItems.objects.create(cart=cart,item=item)
     context = { 'cart': cart, 'cart-items': cart_items }
     return redirect(reverse("ecommerce:customer-profile", kwargs={"customer_id": customer.user_id}), context)
 
@@ -66,8 +66,8 @@ def item_in_cart(request, product_id, customer_id):
         return render(request, 'error/403.html', status=403)
     item = Item.objects.get(id=product_id, is_deleted=False)
     customer = Customer.objects.get(id=customer_id)
-    cart , _ = Cart.objects.get_or_create(customer=customer, is_paid=False)
-    cart_items = CartItems.object.get(cart=cart,item=item)
+    cart , _ = Cart.objects.get_or_create(customer=customer, is_ordered=False)
+    cart_items = CartItems.objects.get(cart=cart,item=item)
     context = { 'cart': cart, 'item-in-cart' : cart_items  }
     return render(request, 'customer-profile.html', context)
 
