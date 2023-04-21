@@ -54,6 +54,7 @@ th {
 }
 
 td {
+  text-align: center;
   font-size: 20px;
   padding: 30px;
 }
@@ -133,4 +134,36 @@ td {
   border-radius: 27px;
   border: none;
   cursor: pointer;
+}
+
+.order-div {
+  background-color: rgb(255, 218, 200);
+  display: flex;
+  justify-content: space-between;
+  border-radius: 20px;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-bottom: 20px;
+}
+
+.order-button {
+  font-family: "Kanit", sans-serif;
+  background-color: white;
+  color: rgb(121, 64, 23);
+  height: 50px;
+  width: 180px;
+  font-size: 22px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+ 
+.total-msg {
+  align-items: center; 
+  flex-direction: column; 
+  display: flex;
+  margin-left:20px;
+  color:rgb(121, 64, 23) ;
+  font-weight: bold;
+  font-size: 30px;
 }
