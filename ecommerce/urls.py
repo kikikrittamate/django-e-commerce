@@ -21,6 +21,10 @@ urlpatterns = [
     path('product-detail/<int:product_id>', views.product_detail, name='product-detail'),
     path('product-detail/<int:product_id>/add-to-cart/<int:customer_id>', views.add_to_cart, name='add-to-cart'),
     # shop
+    path('shop/login', views.login_shop, name='login-shop'),
+    path('shop/login/submit', views.login_shop_submit, name='login-shop-submit'),
+    path('shop/register', views.register_shop, name="register-shop"),
+    path('shop/register/submit', views.register_shop_submit, name="register-shop-submit"),
     path('shop/<int:shop_id>', views.shop, name="shop"),
     path('shop/profile/<int:shop_id>', views.shop_profile, name="shop-profile"),
     path('shop/profile/<int:shop_id>/delete-item/<int:item_id>', views.delete_item, name="delete-item"),
@@ -28,8 +32,5 @@ urlpatterns = [
     path('shop/profile/<int:shop_id>/shop-add/submit', views.add_item_shop_submit, name="add-item-shop-submit"),
     path('shop/profile/<int:shop_id>/edit-profile', views.shop_edit, name="shop-edit"),
     path('shop/profile/<int:shop_id>/edit-profile/submit', views.edit_shop_profile_submit, name="edit-shop-profile-submit"),
-    path('shop/login', views.login_shop, name='login-shop'),
-    path('shop/login/submit', views.login_shop_submit, name='login-shop-submit'),
-    path('shop/register', views.register_shop, name="register-shop"),
-    path('shop/register/submit', views.register_shop_submit, name="register-shop-submit"),
+    path('shop/profile/<int:shop_id>/order', views.shop_order, name="shop-order"),
 ]
