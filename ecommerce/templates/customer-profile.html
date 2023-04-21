@@ -16,9 +16,9 @@
   <div class="card-detail">
     <div class="detail-1">
       <h2 class="c-name">{{ user.first_name }} {{ user.last_name }}</h2>
-      <p class="c-phone">โทรศัพท์ {{ customer.phone }}</p>
-      <p class="c-email">อีเมลล์ {{ user.email }}</p>
-      <p class="c-address">🏠
+      <p class="c-detail">โทรศัพท์ {{ customer.phone }}</p>
+      <p class="c-detail">อีเมลล์ {{ user.email }}</p>
+      <p class="c-detail">🏠
         {{customer.address}} {{customer.city}} {{customer.state}} {{customer.country}}
         {{customer.zipcode}}
       </p>
@@ -29,23 +29,36 @@
   </div>
 </div>
 <h1 class="cart-msg">ตะกร้าของคุณ</h1>
-<div class="product-container">
-  {% if item_in_cart %} {% for cartitem in item_in_cart %}
-  <div class="item-card">
-    <img class="item-img" src="{{cartitem.item.img}}" />
-    <h2>{{ item.name }}</h2>
-    <p class="item-category">{{ cartitem.item.category}}</p>
-    <div class="item-data">
-      <h3 class="item-shop">{{ cartitem.item.shop }}</h3>
-      <h3 class="item-price">{{ cartitem.item.price }} บาท</h3>
-    </div>
-    <div class="button-div">
-      <a href="{% url 'ecommerce:remove-cart-item' customer_id=customer.user.id cart_item_id=cartitem.id %}"><button class="delete-button">
-      ลบสินค้า</button></a>
-    </div>
-  </div>
-  {% endfor %} {% else %}
-  <p class="no-item">ไม่มีสินค้าในตะกร้า</p>
-  {% endif %}
+<div class="cart-card">
+  <main class="main-card">
+        <table class="cart-table">
+        <thead>
+        <tr>
+          <th></th>
+          <th>ชื่อสินค้า</th>
+          <th>ประเภท</th>
+          <th>ร้านค้า</th>
+          <th>ราคา</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if item_in_cart %} {% for cartitem in item_in_cart %}
+        <tr>
+          <td><img class="item-img" src="{{cartitem.item.img}}" /></td>
+          <td>{{cartitem.item.name}}</td>
+          <td>{{cartitem.item.category}}</td>
+          <td>{{cartitem.item.shop}}</td>
+          <td>{{cartitem.item.price}} บาท</td>
+          <td><a href="{% url 'ecommerce:remove-cart-item' customer_id=customer.user.id cart_item_id=cartitem.id %}"><button class="delete-button">
+            ลบสินค้า</button></a></td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <td><p class="no-item">ไม่มีสินค้าในตะกร้า</p></td>
+          {% endif %}
+       </tbody>
+    </table>
+</main>
 </div>
 {% endblock %}
