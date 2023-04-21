@@ -56,7 +56,4 @@ nav ul li button {
   font-size: 14px;
   word-spacing: 2px;
   text-transform: capitalize;
-  align-items: center;
-  flex-direction: column;
-  display: flex;
 }
