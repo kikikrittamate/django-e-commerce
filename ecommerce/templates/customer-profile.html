@@ -30,15 +30,19 @@
 </div>
 <h1 class="cart-msg">ตะกร้าของคุณ</h1>
 <div class="product-container">
-  {% if items_in_cart %} {% for item in items_in_cart %}
+  {% if item_in_cart %} {% for cartitem in item_in_cart %}
   <div class="item-card">
-    <a href="{% url 'ecommerce:product-detail' item.id %}"><img class="item-img" src="{{item.img}}" /></a>
+    <img class="item-img" src="{{cartitem.item.img}}" />
     <h2>{{ item.name }}</h2>
-    <p class="item-category">{{ item.category}}</p>
+    <p class="item-category">{{ cartitem.item.category}}</p>
     <div class="item-data">
-      <h3 class="item-shop">{{ item.shop }}</h3>
-      <h3 class="item-quantity">จำนวน {{ item.qty }}</h3>
-      <h3 class="item-price">{{ item.price }} บาท</h3>
+      <h3 class="item-shop">{{ cartitem.item.shop }}</h3>
+      <h3 class="item-quantity">จำนวน {{ cartitem.item.qty }}</h3>
+      <h3 class="item-price">{{ cartitem.item.price }} บาท</h3>
+    </div>
+    <div class="button-div">
+      <a href="{% url 'ecommerce:remove-cart-item' customer_id=customer.user.id cart_item_id=cartitem.id %}"><button class="delete-button">
+      ลบสินค้า</button></a>
     </div>
   </div>
   {% endfor %} {% else %}

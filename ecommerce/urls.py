@@ -14,6 +14,7 @@ urlpatterns = [
     path('customer/profile/<int:customer_id>', views.customer_profile, name="customer-profile"),
     path('customer/profile/<int:customer_id>/edit-profile', views.customer_edit, name="customer-edit"),
     path('customer/profile/<int:customer_id>/edit-profile/submit', views.edit_customer_profile_submit, name="edit-customer-profile-submit"),
+    path('customer/profile/<int:customer_id>/remove-cart-item/<int:cart_item_id>', views.remove_cart_item, name="remove-cart-item"),
     # products
     path('products/search', views.search_products, name='search'),
     path('products/<str:category>', views.products, name='products'),
