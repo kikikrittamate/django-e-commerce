@@ -10,8 +10,12 @@ class Order(models.Model):
     ref = models.UUIDField(verbose_name="reference number", default=uuid.uuid4, editable=False, unique=False)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
-    qty = models.IntegerField(default=0)
+    timestamp = models.DateTimeField(blank=True)
+
+
+    def get_shop(self):
+        return self.item.shop
 
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('ref', 'ref', 'customer', 'item', 'qty')
+    list_display = ('ref', 'customer', 'item', 'get_shop')

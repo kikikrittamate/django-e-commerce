@@ -123,10 +123,14 @@ def upload_image(content, fname):
     response = requests.request("PUT", url, headers=headers, data=payload)
     print(response.status_code)
 
+
 @login_required(login_url="/shop/login")
 def shop_order(request, shop_id):
     if request.user.id != shop_id:
         # msg: You are not shop owner
         return render(request, 'error/403.html', status=403)
     shop=Shop.objects.get(owner_id=shop_id)
+    # get order by shop id
+    order = Order.objects.filter(item__shop__owner_id=shop_id).order_by('-timestamp')
+    # TODO: render ordered by timestamp and separate by ref number
     return render(request, 'order.html', { 'shop': shop })
