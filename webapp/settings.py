@@ -90,11 +90,11 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'djangoDB',
-            'USER': 'admin',
-            'PASSWORD': 'wAhT15Th1ss7wdfh89',
-            'HOST': 'django-ecommerce-database.cbw5ecooao9z.ap-southeast-2.rds.amazonaws.com',
-            'PORT': '3306',
+            'NAME': config('DB_NAME'),
+            'USER': config('DB_USER'),
+            'PASSWORD': config('DB_PASSWORD'),
+            'HOST': config('DB_HOST'),
+            'PORT': config('DB_PORT'),
         }
     } 
 
