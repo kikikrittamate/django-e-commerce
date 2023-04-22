@@ -23,7 +23,7 @@
       <p class="item-price">{{ item.price }} บาท</p>
     </div>
     <div class="button-div">
-      <a><button class="add-to-cart-button">เพิ่มไปยังตะกร้า</button></a>
+      <a href="{% url 'ecommerce:add-to-cart' product_id=item.id customer_id=user.id %}"><button class="add-to-cart-button">เพิ่มไปยังตะกร้า</button></a>
     </div>
   </div>
 </div>
@@ -37,8 +37,7 @@
     </div>
       <div>
       <a href="{% url 'ecommerce:shop' item.shop.owner.id %}"
-        ><button class="shop-button" style="margin-right:10px
-        ">ไปยังหน้าร้านค้า</button></a
+        ><button class="shop-button">ไปยังหน้าร้านค้า</button></a
       >
     </div>
     </div>

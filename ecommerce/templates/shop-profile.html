@@ -30,7 +30,10 @@
   </div>
 </div>
 <h1 class="shop-msg">สินค้าทั้งหมด</h1>
-<a href="{% url 'ecommerce:shop-add' shop_id=shop.owner.id %}"><button class="add-item-button">เพิ่มสินค้า</button></a>
+<div class="two-button">
+  <a href="{% url 'ecommerce:shop-order' shop_id=shop.owner.id %}"><button class="order-button">ออเดอร์ทั้งหมด</button></a>
+  <a href="{% url 'ecommerce:shop-add' shop_id=shop.owner.id %}"><button class="add-item-button">เพิ่มสินค้า</button></a>
+</div>
 <div class="product-container">
   {% if items %} {% for item in items %}
   <div class="item-card">

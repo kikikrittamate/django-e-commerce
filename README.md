@@ -5,5 +5,5 @@
 
 python manage.py migrate
 
-python manage.py loaddata ecommerce/fixures/category.json --app ecommerce.category
+python manage.py loaddata ecommerce/fixtures/category.json --app ecommerce.category
 ```

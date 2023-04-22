@@ -49,14 +49,16 @@ nav ul li button {
 .page-footer {
   background: rgb(255, 218, 200);
   color: white;
-  height: auto;
+  position: sticky; 
+  top:100%; 
+  padding: 10px; 
+  align-items: center; 
+  flex-direction: column; 
+  display: flex;
 }
 
 .footer-bottom p {
   font-size: 14px;
   word-spacing: 2px;
   text-transform: capitalize;
-  align-items: center;
-  flex-direction: column;
-  display: flex;
 }

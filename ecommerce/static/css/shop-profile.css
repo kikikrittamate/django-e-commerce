@@ -152,8 +152,27 @@
   display: flex;
 }
 
+.two-button {
+  margin-left: 55px;
+  margin-right: 55px;
+  display: flex;
+  justify-content: space-between;
+}
+
 .add-item-button {
-  margin-left:85%;
+  margin-top: 10px;
+  background-color: white;
+  height: 60px;
+  width: 180px;
+  font-size: 24px;
+  color: rgb(121, 64, 23);
+  border-radius: 27px;
+  border: none;
+  cursor: pointer;
+  font-family: Kanit, sans-serif;
+}
+
+.order-button {
   margin-top: 10px;
   background-color: white;
   height: 60px;

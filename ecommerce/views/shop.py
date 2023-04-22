@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-from ..models import Shop, Item, Category
-from django.contrib.auth.models import User
+from ..models import Shop, Item, Category, Order
 import requests
 import os
 from webapp.settings import IMAGE_API_ROOT, IMAGE_API_TOKEN, S3_URL
@@ -123,3 +122,28 @@ def upload_image(content, fname):
     }
     response = requests.request("PUT", url, headers=headers, data=payload)
     print(response.status_code)
+
+
+@login_required(login_url="/shop/login")
+def shop_order(request, shop_id):
+    if request.user.id != shop_id:
+        # msg: You are not shop owner
+        return render(request, 'error/403.html', status=403)
+    shop=Shop.objects.get(owner_id=shop_id)
+    # get order by shop id
+    order = Order.objects.filter(item__shop__owner_id=shop_id).order_by('-timestamp')
+    order_dict = {}
+    for o in order:
+        # check ref number order
+        try:
+            _ = order_dict[o.ref]
+        except KeyError:
+            order_dict[o.ref] = {
+                "items": [],
+                "total_price": 0
+            }
+        order_dict[o.ref]["items"].append(o)
+        order_dict[o.ref]["total_price"] += o.item.price
+        
+    print(order_dict)
+    return render(request, 'order.html', { 'orders': order_dict })
