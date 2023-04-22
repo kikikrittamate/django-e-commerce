@@ -1,0 +1,59 @@
+.page-msg {
+  color: rgb(121, 64, 23);
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 40px;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+}
+
+.order-table {
+  width: 98%; 
+  margin:10px;
+}
+
+th {
+  padding: 20px;
+  font-size: 25px;
+}
+
+td {
+  border-radius: 5px;
+  background-color: antiquewhite;
+  text-align: center;
+  font-size: 16px;
+  padding: 30px;
+}
+
+.table-head {
+  border-radius: 10px;
+}
+
+.main-card {
+  width: 95%;
+  margin-top:50px; 
+  margin-bottom:50px; 
+  background-color: white; 
+  border-radius: 10px;
+}
+
+.order-card {
+  background-color: rgb(255, 218, 200);
+  border-radius: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 20px;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+}
+
+
+.item-head, .item-detail {
+  font-weight: lighter;
+  font-size:16px;
+  background-color: white;
+  border-radius: 0px;
+  padding: 10px;
+}
