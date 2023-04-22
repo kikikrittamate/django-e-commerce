@@ -77,13 +77,27 @@ WSGI_APPLICATION = 'webapp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+DATABASES = {}
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'djangoDB',
+            'USER': 'admin',
+            'PASSWORD': 'wAhT15Th1ss7wdfh89',
+            'HOST': 'django-ecommerce-database.cbw5ecooao9z.ap-southeast-2.rds.amazonaws.com',
+            'PORT': '3306',
+        }
+    } 
+
 
 
 # Password validation

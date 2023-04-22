@@ -3,3 +3,4 @@ python-decouple
 whitenoise
 requests
 pytz
+mysqlclient
