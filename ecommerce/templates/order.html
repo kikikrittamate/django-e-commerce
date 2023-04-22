@@ -4,44 +4,57 @@
 
 {% block head %}
 {{ block.super }}
-
-
+<link rel="stylesheet" href="{% static 'css/order.css' %}" />
 {% endblock %}
 
 
 {% block content %}
-<h1>ออเดอร์ทั้งหมด</h1>
+<h1 class="page-msg">ออเดอร์ทั้งหมด</h1>
 
-{% for ref, order_list in orders.items %}
-<!-- order box -->
-<div>
-    <p>reference number: {{ ref }}</p>
-    <p>timestamp: {{ order_list.items.0.timestamp }}</p>
-    <!-- address box -->
-    <div>
-        <p>คุณ {{ order_list.items.0.customer.user.first_name }} {{ order_list.items.0.customer.user.last_name }}</p>
-        <p>{{ order_list.items.0.customer.address }} {{ order_list.items.0.customer.city }},</p>
-        <p>{{ order_list.items.0.customer.state }}, {{ order_list.items.0.customer.country }} {{ order_list.items.0.customer.zipcode }}</p>
-        <p>Tel. {{ order_list.items.0.customer.phone }}</p>
-    </div>
-    <!-- table item box-->
-    <div>
-        <table>
-            <tr>
-                <th>ชื่อสินค้า</th>
-                <th>ราคา</th>
-            </tr>
-            {% for order in order_list.items %}
-            <tr>
-                <th>{{ order.item }}</th>
-                <th>{{ order.item.price }}</th>
-            </tr>
-            {% endfor %}
+
+<div class="order-card">
+    <main class="main-card">
+        <table class="order-table">
+            <thead class="table-head">
+                <tr>
+                  <th>Reference Number</th>
+                  <th>Timestamp</th>
+                  <th>ลูกค้า</th>
+                  <th>ที่อยู่</th>
+                  <th>หมายเลขโทรศัพท์</th>
+                  <th>รายการสินค้า</th>
+                  <th>ราคารวม</th>
+                </tr>
+                </thead>
+                    <tbody>
+                        {% for ref, order_list in orders.items %}
+                        <tr>
+                            <td>{{ ref }}</td>
+                            <td>{{ order_list.items.0.timestamp }}</td>
+                            <td>{{ order_list.items.0.customer.user.first_name }} {{ order_list.items.0.customer.user.last_name }}</td>
+                            <td>{{ order_list.items.0.customer.address }} {{ order_list.items.0.customer.city }}
+                                {{ order_list.items.0.customer.state }} {{ order_list.items.0.customer.country }} {{ order_list.items.0.customer.zipcode }}</td>
+                            <td>{{ order_list.items.0.customer.phone }}</td>
+                            <td>
+                            <table class="item-table">
+                                <tr>
+                                    <th class="item-head">ชื่อสินค้า</th>
+                                    <th class="item-head">ราคา</th>
+                                </tr>
+                                {% for order in order_list.items %}
+                                <tr>
+                                    <td class="item-detail">{{ order.item }}</td>
+                                    <td class="item-detail">{{ order.item.price }}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                            </td>
+                        <td>{{ order_list.total_price }} บาท</td>
+                        </tr>
+                        {% endfor %}
+                       </tbody>
         </table>
-        <p>ราคารวม {{ order_list.total_price }} บาท</p>
-    </div>
-</div>
-<hr />  
-{% endfor %}
+    </main>
+</div>  
 
 {% endblock %}
