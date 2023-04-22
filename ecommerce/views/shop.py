@@ -134,12 +134,18 @@ def shop_order(request, shop_id):
     order = Order.objects.filter(item__shop__owner_id=shop_id).order_by('-timestamp')
     # TODO: render ordered by timestamp and separate by ref number
     order_dict = {}
+    price_dict = {}
     for o in order:
-        # check ref number
+        # check ref number order
         try:
             _ = order_dict[o.ref]
         except KeyError:
-            order_dict[o.ref] = []
-        order_dict[o.ref].append(o)
+            order_dict[o.ref] = {
+                "items": [],
+                "total_price": 0
+            }
+        order_dict[o.ref]["items"].append(o)
+        order_dict[o.ref]["total_price"] += o.item.price
+        
     print(order_dict)
     return render(request, 'order.html', { 'orders': order_dict })
