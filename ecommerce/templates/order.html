@@ -16,6 +16,7 @@
 <!-- order box -->
 <div>
     <p>reference number: {{ ref }}</p>
+    <p>timestamp: {{ order_list.0.timestamp }}</p>
     <!-- address box -->
     <div>
         <p>คุณ {{ order_list.0.customer.user.first_name }} {{ order_list.0.customer.user.last_name }}</p>

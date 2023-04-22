@@ -56,14 +56,21 @@
         {% endfor %}
         {% else %}
         <td><p class="no-item">ไม่มีสินค้าในตะกร้า</p></td>
-          {% endif %}
+        {% endif %}
        </tbody>
     </table>
 </main>
 </div>
 <div class="order-div">
   <p class="total-msg">ราคารวม {{cart.get_cart_total}} บาท</p>
-  <a href="{% url 'ecommerce:create-order' customer_id=customer.user.id %}"><button class="order-button">
-    ยืนยันออเดอร์</button></a>
+  {% if item_in_cart %}
+  <a href="{% url 'ecommerce:create-order' customer_id=customer.user.id %}">
+    <button class="order-button">ยืนยันออเดอร์</button>
+  </a>
+  {% else %}
+  <a href="#">
+    <button class="order-button" disabled style="opacity: 0.5;">ยืนยันออเดอร์</button>
+  </a>
+  {% endif %}
 </div>
 {% endblock %}
