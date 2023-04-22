@@ -11,4 +11,36 @@
 
 {% block content %}
 <h1>ออเดอร์ทั้งหมด</h1>
+
+{% for ref, order_list in orders.items %}
+<!-- order box -->
+<div>
+    <p>reference number: {{ ref }}</p>
+    <!-- address box -->
+    <div>
+        <p>คุณ {{ order_list.0.customer.user.first_name }} {{ order_list.0.customer.user.last_name }}</p>
+        <p>{{ order_list.0.customer.address }} {{ order_list.0.customer.city }},</p>
+        <p>{{ order_list.0.customer.state }}, {{ order_list.0.customer.country }} {{ order_list.0.customer.zipcode }}</p>
+        <p>Tel. {{ order_list.0.customer.phone }}</p>
+    </div>
+    <!-- table item box-->
+    <div>
+        <table>
+            <tr>
+                <th>ชื่อสินค้า</th>
+                <th>ราคา</th>
+            </tr>
+            {% for order in order_list %}
+            <tr>
+                <th>{{ order.item }}</th>
+                <th>{{ order.item.price }}</th>
+            </tr>
+            {% endfor %}
+        </table>
+        <p>ราคารวม XXX บาท</p>
+    </div>
+</div>
+<hr />
+{% endfor %}
+
 {% endblock %}

@@ -133,4 +133,13 @@ def shop_order(request, shop_id):
     # get order by shop id
     order = Order.objects.filter(item__shop__owner_id=shop_id).order_by('-timestamp')
     # TODO: render ordered by timestamp and separate by ref number
-    return render(request, 'order.html', { 'shop': shop })
+    order_dict = {}
+    for o in order:
+        # check ref number
+        try:
+            _ = order_dict[o.ref]
+        except KeyError:
+            order_dict[o.ref] = []
+        order_dict[o.ref].append(o)
+    print(order_dict)
+    return render(request, 'order.html', { 'orders': order_dict })
