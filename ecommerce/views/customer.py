@@ -4,8 +4,7 @@ from ecommerce.models import Customer, Shop, Item, Cart, CartItems, Order
 from django.contrib.auth.decorators import login_required
 import uuid
 import datetime
-import random
-
+from pytz import timezone
 
 @login_required(login_url="/login")
 def customer_profile(request, customer_id):
@@ -99,6 +98,7 @@ def create_order(request, customer_id):
     # create data
     cart_items = CartItems.objects.filter(cart=cart)
     current_time = datetime.datetime.now()
+    current_time = current_time.astimezone(timezone('Asia/Bangkok'))
     order_uuid = uuid.uuid4()
     # create order
     for item in cart_items:
