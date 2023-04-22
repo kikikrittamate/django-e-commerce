@@ -132,9 +132,7 @@ def shop_order(request, shop_id):
     shop=Shop.objects.get(owner_id=shop_id)
     # get order by shop id
     order = Order.objects.filter(item__shop__owner_id=shop_id).order_by('-timestamp')
-    # TODO: render ordered by timestamp and separate by ref number
     order_dict = {}
-    price_dict = {}
     for o in order:
         # check ref number order
         try:
