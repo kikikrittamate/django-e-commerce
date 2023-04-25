@@ -10,7 +10,6 @@
 
 ## Features & Tools
 ```
-- AWS Well-Architected Framework
 - Amazon EC2
 - Amazon S3
 - Amazon IAM
