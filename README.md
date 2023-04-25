@@ -1,9 +1,17 @@
 # django-e-commerce
 
 ```
-# Load fixture data
+## Group members
+1.  Siravit Ruethaiwat 6210546048
+2.  Natchanon Manatphaiboon 6310545515
+3.  Krittamate Cherdpongtagit 6310545884
 
-python manage.py migrate
-
-python manage.py loaddata ecommerce/fixtures/category.json --app ecommerce.category
+## Features
+-AWS Well-Architected Framework
+-Amazon EC2
+-Amazon S3
+-Amazon IAM
+-Amazon RDS
+-Amazon API Gateway
+-HTML CSS
 ```
