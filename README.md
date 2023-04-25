@@ -6,6 +6,7 @@
 3.  Krittamate Cherdpongtagit 6310545884
 
 ## Features
+```
 -AWS Well-Architected Framework
 -Amazon EC2
 -Amazon S3
@@ -13,4 +14,5 @@
 -Amazon RDS
 -Amazon API Gateway
 -HTML CSS
+```
 
