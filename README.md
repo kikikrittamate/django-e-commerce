@@ -1,6 +1,5 @@
 # django-e-commerce
 
-```
 ## Group members
 1.  Siravit Ruethaiwat 6210546048
 2.  Natchanon Manatphaiboon 6310545515
@@ -14,4 +13,4 @@
 -Amazon RDS
 -Amazon API Gateway
 -HTML CSS
-```
+
